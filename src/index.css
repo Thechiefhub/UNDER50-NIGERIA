@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  
+  /* Brand Luxury Palette */
+  --color-brand-red: #C8102E;         /* Signature Red - Crimson */
+  --color-brand-red-hover: #9E0B22;   /* Deep Blood Red */
+  --color-brand-black: #050505;       /* Obsidian Black */
+  --color-brand-charcoal: #0F0F0F;    /* Rich Dark Charcoal */
+  --color-brand-grey: #1C1C1C;        /* Hairline Gray */
+  --color-brand-light-grey: #808080;  /* Editorial Label Gray */
+  --color-brand-cream: #F9F8F6;       /* Editorial Warm White */
+  --color-brand-gold: #C5A880;        /* Luxurious Editorial Gold Accent */
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-brand-black);
+    color: #FFFFFF;
+    letter-spacing: -0.01em;
+  }
+}
+
+/* Custom Webkit Scrollbar - Razor Thin & Crimson */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #C8102E;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9E0B22;
+}
+
+/* Noise/Paper Grain Overlay - Tactical & Luxurious */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  content: "";
+  opacity: 0.018;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Premium Radial Glow Mesh */
+.ambient-glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200, 16, 46, 0.08) 0%, rgba(200, 16, 46, 0) 70%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Animated Keyframe Reveals */
+@keyframes slideUpReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slideUpReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Border Glow Effects */
+.editorial-card {
+  background-color: var(--color-brand-charcoal);
+  border: 1px solid var(--color-brand-grey);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.editorial-card:hover {
+  border-color: rgba(200, 16, 46, 0.4);
+  box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.9);
+}
+
+/* Custom Text Underline Transition */
+.hover-underline-expand {
+  position: relative;
+}
+.hover-underline-expand::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--color-brand-red);
+  transform-origin: bottom right;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.group:hover .hover-underline-expand::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Geometric Minimalist Borders (No curves, premium editorial look) */
+.sharp-border {
+  border-radius: 0px !important;
+}
+
+/* Fine-grid line decoration */
+.editorial-grid-bg {
+  background-size: 40px 40px;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+}

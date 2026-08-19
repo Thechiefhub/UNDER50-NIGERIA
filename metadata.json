@@ -1,0 +1,6 @@
+{
+  "name": "UNDER50 NIGERIA",
+  "description": "The premium digital platform celebrating and connecting Nigeria's most impactful under-50 leaders shaping industries, businesses, and the future of the nation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
