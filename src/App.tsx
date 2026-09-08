@@ -29,6 +29,30 @@ export default function App() {
   // Page Routing State
   const [currentPage, setCurrentPage] = useState<string>("home");
 
+  // Sophisticated Animated Brand Word Rotator for Home Hero
+  const brandWords = [
+    "WHAT'S NEXT.",
+    "TOMORROW.",
+    "INNOVATION.",
+    "LEADERSHIP.",
+    "NIGERIA.",
+    "ENTERPRISE.",
+    "THE FUTURE."
+  ];
+  const [wordIndex, setWordIndex] = useState(0);
+  const [animateWord, setAnimateWord] = useState(true);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setAnimateWord(false);
+      setTimeout(() => {
+        setWordIndex((prev) => (prev + 1) % brandWords.length);
+        setAnimateWord(true);
+      }, 400);
+    }, 3200);
+    return () => clearInterval(timer);
+  }, []);
+
   // Persistent States synced to LocalStorage
   const [honourees, setHonourees] = useState<Honouree[]>(() => {
     const saved = localStorage.getItem("u50_honourees");
@@ -140,7 +164,7 @@ export default function App() {
   const featuredHonourees = honourees.filter((h) => h.isFeatured).slice(0, 4);
 
   return (
-    <div className="min-h-screen bg-[#050505] text-white flex flex-col justify-between font-sans relative antialiased selection:bg-brand-red selection:text-white editorial-grid-bg">
+    <div className="min-h-screen bg-[#050505] text-white flex flex-col justify-between font-sans relative antialiased selection:bg-brand-green selection:text-white editorial-grid-bg">
       {/* Cinematic noise texture overlay */}
       <div className="noise-overlay" />
 
@@ -167,7 +191,11 @@ export default function App() {
                 
                 <h1 className="font-serif text-5xl md:text-8xl font-black text-white tracking-tighter uppercase leading-none max-w-5xl mx-auto select-none">
                   THE PEOPLE SHAPING <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red via-[#F9F8F6] to-white">WHAT'S NEXT.</span>
+                  <span className="inline-block relative min-h-[1.1em]">
+                    <span className={`inline-block text-transparent bg-clip-text bg-gradient-to-r from-brand-green via-[#F9F8F6] to-white transition-all duration-500 transform ${animateWord ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'}`}>
+                      {brandWords[wordIndex]}
+                    </span>
+                  </span>
                 </h1>
 
                 <p className="text-gray-400 text-sm md:text-xl max-w-2xl mx-auto leading-relaxed select-none">
@@ -186,7 +214,7 @@ export default function App() {
                   <button
                     id="hero-nominate-btn"
                     onClick={() => setCurrentPage("nominate")}
-                    className="w-full sm:w-auto bg-brand-red text-white text-xs uppercase tracking-widest font-black px-8 py-4 hover:bg-brand-red-hover transition-all cursor-pointer sharp-border shadow-lg shadow-brand-red/15 border-b-2 border-brand-red-hover"
+                    className="w-full sm:w-auto bg-brand-green text-white text-xs uppercase tracking-widest font-black px-8 py-4 hover:bg-brand-green-hover transition-all cursor-pointer sharp-border shadow-lg shadow-brand-green/15 border-b-2 border-brand-green-hover"
                   >
                     Nominate Someone
                   </button>
@@ -203,10 +231,10 @@ export default function App() {
             <div id="edition-strip" className="bg-[#0b0b0b] border-y border-brand-grey py-5">
               <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
                 <div className="flex items-center space-x-3 justify-center md:justify-start">
-                  <span className="w-2.5 h-2.5 bg-brand-red rounded-full animate-ping flex-shrink-0"></span>
+                  <span className="w-2.5 h-2.5 bg-brand-green rounded-full animate-ping flex-shrink-0"></span>
                   <p className="text-xs uppercase tracking-widest font-black text-white">
                     UNDER50 NIGERIA {settings.currentEditionYear} • 
-                    <span className="text-brand-red ml-1 font-bold">
+                    <span className="text-brand-green ml-1 font-bold">
                       {settings.nominationsOpen ? "NOMINATIONS OPEN" : "SHORTLIST ANNOUNCED"}
                     </span>
                   </p>
@@ -214,7 +242,7 @@ export default function App() {
                 {settings.nominationsOpen ? (
                   <button
                     onClick={() => setCurrentPage("nominate")}
-                    className="text-xs text-white hover:text-brand-red font-black uppercase tracking-widest flex items-center space-x-1.5 border-b border-white hover:border-brand-red pb-0.5 transition-all cursor-pointer"
+                    className="text-xs text-white hover:text-brand-green font-black uppercase tracking-widest flex items-center space-x-1.5 border-b border-white hover:border-brand-green pb-0.5 transition-all cursor-pointer"
                   >
                     <span>Submit an Inductee Proposal</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -222,7 +250,7 @@ export default function App() {
                 ) : (
                   <button
                     onClick={() => setCurrentPage("list")}
-                    className="text-xs text-white hover:text-brand-red font-black uppercase tracking-widest flex items-center space-x-1.5 border-b border-white hover:border-brand-red pb-0.5 transition-all cursor-pointer"
+                    className="text-xs text-white hover:text-brand-green font-black uppercase tracking-widest flex items-center space-x-1.5 border-b border-white hover:border-brand-green pb-0.5 transition-all cursor-pointer"
                   >
                     <span>Discover Nominee Registry</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -240,12 +268,12 @@ export default function App() {
               
               <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-brand-grey pb-6">
                 <div>
-                  <span className="text-xs text-brand-red font-black uppercase tracking-widest block mb-1">INDIVIDUAL PROFILES</span>
+                  <span className="text-xs text-brand-green font-black uppercase tracking-widest block mb-1">INDIVIDUAL PROFILES</span>
                   <h3 className="font-serif text-3xl md:text-5xl font-bold text-white">FEATURED LEADERS</h3>
                 </div>
                 <button
                   onClick={() => setCurrentPage("list")}
-                  className="text-xs text-gray-400 hover:text-brand-red font-bold uppercase tracking-widest flex items-center gap-1.5 mt-4 md:mt-0 cursor-pointer group"
+                  className="text-xs text-gray-400 hover:text-brand-green font-bold uppercase tracking-widest flex items-center gap-1.5 mt-4 md:mt-0 cursor-pointer group"
                 >
                   <span className="hover-underline-expand">View All 50 Honourees</span>
                   <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -258,7 +286,7 @@ export default function App() {
                   <div
                     key={person.id}
                     onClick={() => handleSelectPerson(person.id)}
-                    className="bg-brand-charcoal border border-brand-grey cursor-pointer group hover:border-brand-red/60 transition-all duration-300 relative flex flex-col justify-between sharp-border"
+                    className="bg-brand-charcoal border border-brand-grey cursor-pointer group hover:border-brand-green/60 transition-all duration-300 relative flex flex-col justify-between sharp-border"
                   >
                     <div className="aspect-[4/5] overflow-hidden bg-brand-black relative">
                       <img
@@ -270,9 +298,9 @@ export default function App() {
                       <div className="absolute inset-0 bg-brand-black/20 group-hover:bg-transparent transition-colors" />
                     </div>
                     <div className="p-6 relative">
-                      <div className="absolute top-0 left-6 right-6 h-[1.5px] bg-brand-red origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
-                      <p className="text-[10px] text-brand-red uppercase tracking-wider font-bold mb-1">{person.category}</p>
-                      <h4 className="font-serif text-xl font-bold text-white group-hover:text-brand-red transition-colors">{person.name}</h4>
+                      <div className="absolute top-0 left-6 right-6 h-[1.5px] bg-brand-green origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+                      <p className="text-[10px] text-brand-green uppercase tracking-wider font-bold mb-1">{person.category}</p>
+                      <h4 className="font-serif text-xl font-bold text-white group-hover:text-brand-green transition-colors">{person.name}</h4>
                       <p className="text-xs text-gray-400 font-semibold mt-0.5">{person.title} / {person.organization}</p>
                     </div>
                   </div>
@@ -284,7 +312,7 @@ export default function App() {
             <section id="countdown-banner" className="bg-transparent border-y border-brand-grey py-24 space-y-12 relative">
               <div className="ambient-glow bottom-[10%] left-10" />
               <div className="max-w-4xl mx-auto px-6 text-center space-y-6">
-                <span className="text-xs text-brand-red font-black uppercase tracking-widest block">ANNUAL CONFERENCE CONVENE</span>
+                <span className="text-xs text-brand-green font-black uppercase tracking-widest block">ANNUAL CONFERENCE CONVENE</span>
                 <h3 className="font-serif text-3xl md:text-5xl font-bold text-white uppercase tracking-tight leading-none">
                   THE COUNTDOWN IS ON
                 </h3>
@@ -298,7 +326,7 @@ export default function App() {
                 <div className="pt-6">
                   <button
                     onClick={() => setCurrentPage("conference")}
-                    className="bg-brand-red text-white text-xs uppercase tracking-widest font-black px-8 py-4 hover:bg-brand-red-hover transition-colors cursor-pointer sharp-border border-b-2 border-brand-red-hover"
+                    className="bg-brand-green text-white text-xs uppercase tracking-widest font-black px-8 py-4 hover:bg-brand-green-hover transition-colors cursor-pointer sharp-border border-b-2 border-brand-green-hover"
                   >
                     Secure Delegates Passes
                   </button>
@@ -310,12 +338,12 @@ export default function App() {
             <section id="home-stories-section" className="max-w-7xl mx-auto px-6 py-24 space-y-12">
               <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-brand-grey pb-6">
                 <div>
-                  <span className="text-xs text-brand-red font-black uppercase tracking-widest block mb-1">INTELLECTUAL INSIGHTS</span>
+                  <span className="text-xs text-brand-green font-black uppercase tracking-widest block mb-1">INTELLECTUAL INSIGHTS</span>
                   <h3 className="font-serif text-3xl md:text-5xl font-bold text-white">STORIES & ESSAYS</h3>
                 </div>
                 <button
                   onClick={() => setCurrentPage("stories")}
-                  className="text-xs text-gray-400 hover:text-brand-red font-bold uppercase tracking-widest flex items-center gap-1.5 mt-4 md:mt-0 cursor-pointer group"
+                  className="text-xs text-gray-400 hover:text-brand-green font-bold uppercase tracking-widest flex items-center gap-1.5 mt-4 md:mt-0 cursor-pointer group"
                 >
                   <span className="hover-underline-expand">Explore Stories Index</span>
                   <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -328,7 +356,7 @@ export default function App() {
                   <div
                     key={story.id}
                     onClick={() => handleSelectStory(story.slug)}
-                    className="bg-brand-charcoal border border-brand-grey cursor-pointer group hover:border-brand-red/40 transition-all duration-300 flex flex-col justify-between sharp-border"
+                    className="bg-brand-charcoal border border-brand-grey cursor-pointer group hover:border-brand-green/40 transition-all duration-300 flex flex-col justify-between sharp-border"
                   >
                     <div className="aspect-[16/10] overflow-hidden bg-brand-black relative">
                       <img src={story.imageUrl} alt="" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300" />
@@ -336,8 +364,8 @@ export default function App() {
                     </div>
                     <div className="p-6 flex-grow flex flex-col justify-between min-h-[180px]">
                       <div>
-                        <span className="text-[10px] text-brand-red uppercase font-black">{story.category}</span>
-                        <h4 className="font-serif text-lg font-bold text-white mt-2 group-hover:text-brand-red transition-colors line-clamp-2">
+                        <span className="text-[10px] text-brand-green uppercase font-black">{story.category}</span>
+                        <h4 className="font-serif text-lg font-bold text-white mt-2 group-hover:text-brand-green transition-colors line-clamp-2">
                           {story.title}
                         </h4>
                         <p className="text-xs text-gray-400 mt-2 line-clamp-2">{story.excerpt}</p>
@@ -356,18 +384,18 @@ export default function App() {
             <section id="partners-section" className="bg-[#0b0b0b] py-24 border-t border-brand-grey">
               <div className="max-w-7xl mx-auto px-6 space-y-12">
                 <div className="text-center">
-                  <span className="text-xs text-brand-red font-black uppercase tracking-widest">Global Alliances</span>
+                  <span className="text-xs text-brand-green font-black uppercase tracking-widest">Global Alliances</span>
                   <h3 className="font-serif text-3xl md:text-4xl font-bold text-white uppercase mt-1">BUILD THE FUTURE WITH US</h3>
                   <p className="text-gray-400 text-xs mt-2 max-w-sm mx-auto">Connecting under-50 leaders with major institutional and audit networks.</p>
                 </div>
 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 max-w-4xl mx-auto">
                   {initialPartners.map((prt) => (
-                    <div key={prt.id} className="bg-brand-charcoal border border-brand-grey p-6 flex flex-col items-center justify-center text-center group hover:border-brand-red/50 transition-all duration-300 sharp-border">
+                    <div key={prt.id} className="bg-brand-charcoal border border-brand-grey p-6 flex flex-col items-center justify-center text-center group hover:border-brand-green/50 transition-all duration-300 sharp-border">
                       <div className="w-12 h-12 rounded-full overflow-hidden mb-3 bg-brand-black flex-shrink-0">
                         <img src={prt.logoUrl} alt="" className="w-full h-full object-cover grayscale" />
                       </div>
-                      <span className="text-[9px] uppercase tracking-widest font-black text-brand-red block mb-1">{prt.tier} Partner</span>
+                      <span className="text-[9px] uppercase tracking-widest font-black text-brand-green block mb-1">{prt.tier} Partner</span>
                       <span className="text-xs text-white font-bold block truncate max-w-full">{prt.name}</span>
                     </div>
                   ))}
@@ -377,7 +405,7 @@ export default function App() {
 
             {/* Newsletter Subscription */}
             <section id="newsletter-section" className="max-w-4xl mx-auto px-6 py-24 text-center space-y-6">
-              <span className="text-xs text-brand-red font-black uppercase tracking-widest block">The Dispatch List</span>
+              <span className="text-xs text-brand-green font-black uppercase tracking-widest block">The Dispatch List</span>
               <h3 className="font-serif text-3xl md:text-5xl font-bold text-white uppercase">STAY AHEAD OF WHAT'S NEXT</h3>
               <p className="text-gray-400 text-xs md:text-sm max-w-md mx-auto leading-relaxed">
                 Get stories, exclusive opportunities, demographic insights, and key announcements from the UNDER50 ecosystem directly to your terminal.
@@ -391,12 +419,12 @@ export default function App() {
                   value={newsletterEmail}
                   onChange={(e) => setNewsletterEmail(e.target.value)}
                   placeholder="Your executive email address..."
-                  className="flex-grow bg-brand-charcoal border border-brand-grey p-3.5 text-xs text-white focus:outline-none focus:border-brand-red transition-all sharp-border"
+                  className="flex-grow bg-brand-charcoal border border-brand-grey p-3.5 text-xs text-white focus:outline-none focus:border-brand-green transition-all sharp-border"
                 />
                 <button
                   id="newsletter-submit-btn"
                   type="submit"
-                  className="bg-brand-red text-white text-xs uppercase tracking-widest font-black px-6 py-3.5 hover:bg-brand-red-hover transition-all cursor-pointer sharp-border border-b-2 border-brand-red-hover"
+                  className="bg-brand-green text-white text-xs uppercase tracking-widest font-black px-6 py-3.5 hover:bg-brand-green-hover transition-all cursor-pointer sharp-border border-b-2 border-brand-green-hover"
                 >
                   Join The List
                 </button>
@@ -410,10 +438,10 @@ export default function App() {
 
             {/* Final CTA Closing Section */}
             <section id="final-cta" className="bg-[#0b0b0b] border-t border-brand-grey py-24 text-center space-y-8 relative overflow-hidden">
-              <div className="absolute inset-0 bg-brand-red/5 pointer-events-none -z-10" />
+              <div className="absolute inset-0 bg-brand-green/5 pointer-events-none -z-10" />
               <h2 className="font-serif text-4xl md:text-7xl font-black text-white tracking-tight uppercase leading-none max-w-4xl mx-auto select-none">
                 WHO IS SHAPING <br />
-                <span className="text-brand-red">WHAT'S NEXT?</span>
+                <span className="text-brand-green">WHAT'S NEXT?</span>
               </h2>
               <p className="text-gray-400 text-xs md:text-sm max-w-md mx-auto leading-relaxed">
                 Maybe it's you. Maybe it's someone you know. Help us discover and document those building Nigeria's tomorrow.
@@ -421,7 +449,7 @@ export default function App() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-sm mx-auto">
                 <button
                   onClick={() => setCurrentPage("nominate")}
-                  className="w-full bg-brand-red text-white text-xs uppercase tracking-widest font-black py-4 hover:bg-brand-red-hover transition-colors cursor-pointer sharp-border shadow-lg shadow-brand-red/10 border-b-2 border-brand-red-hover"
+                  className="w-full bg-brand-green text-white text-xs uppercase tracking-widest font-black py-4 hover:bg-brand-green-hover transition-colors cursor-pointer sharp-border shadow-lg shadow-brand-green/10 border-b-2 border-brand-green-hover"
                 >
                   Nominate Someone
                 </button>
@@ -452,7 +480,7 @@ export default function App() {
         {currentPage === "awards" && (
           <div id="view-awards" className="max-w-7xl mx-auto px-6 py-12 space-y-12 animate-slide-up">
             <div className="border-b border-brand-grey pb-8 mb-8">
-              <span className="text-xs text-brand-red font-black uppercase tracking-widest block mb-2">Recognition Criteria</span>
+              <span className="text-xs text-brand-green font-black uppercase tracking-widest block mb-2">Recognition Criteria</span>
               <h1 className="font-serif text-4xl md:text-6xl font-black text-white tracking-tight uppercase leading-none">THE UNDER50 AWARDS</h1>
               <p className="text-gray-400 text-sm max-w-xl mt-3 leading-relaxed">
                 Rewarding those who turn ambition into measurable societal and industrial outcomes across 12 distinct impact categories.
@@ -461,12 +489,12 @@ export default function App() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {initialCategories.map((cat, idx) => (
-                <div key={cat.id} className="bg-brand-charcoal border border-brand-grey p-8 space-y-4 hover:border-brand-red/40 transition-all duration-300 relative flex flex-col justify-between sharp-border">
+                <div key={cat.id} className="bg-brand-charcoal border border-brand-grey p-8 space-y-4 hover:border-brand-green/40 transition-all duration-300 relative flex flex-col justify-between sharp-border">
                   <div className="space-y-4">
-                    <span className="text-xs font-mono text-brand-red font-bold">CATEGORY 0{idx + 1}</span>
+                    <span className="text-xs font-mono text-brand-green font-bold">CATEGORY 0{idx + 1}</span>
                     <h3 className="font-serif text-2xl font-bold text-white">{cat.name}</h3>
                     <p className="text-gray-400 text-xs leading-relaxed">{cat.description}</p>
-                    <div className="bg-brand-black p-4 border-l-2 border-brand-red text-xs sharp-border">
+                    <div className="bg-brand-black p-4 border-l-2 border-brand-green text-xs sharp-border">
                       <p className="font-black text-gray-500 uppercase tracking-widest mb-1">Standard Benchmarks</p>
                       <p className="text-gray-300 leading-relaxed font-sans">{cat.criteria}</p>
                     </div>
@@ -478,7 +506,7 @@ export default function App() {
                         setCurrentPage("nominate");
                         window.scrollTo({ top: 300, behavior: "smooth" });
                       }}
-                      className="text-xs text-brand-red hover:text-white uppercase tracking-widest font-black border-b border-brand-red pb-0.5 transition-all cursor-pointer"
+                      className="text-xs text-brand-green hover:text-white uppercase tracking-widest font-black border-b border-brand-green pb-0.5 transition-all cursor-pointer"
                     >
                       Propose Nominee for Category →
                     </button>
@@ -490,7 +518,7 @@ export default function App() {
             {/* Judges panel list */}
             <section className="bg-brand-charcoal border border-brand-grey p-8 md:p-12 space-y-8 sharp-border">
               <div className="border-b border-brand-grey pb-4">
-                <span className="text-xs text-brand-red font-black uppercase tracking-widest block">Audit Integrity</span>
+                <span className="text-xs text-brand-green font-black uppercase tracking-widest block">Audit Integrity</span>
                 <h3 className="font-serif text-3xl font-bold text-white">THE ADVISORY BOARD</h3>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
@@ -501,7 +529,7 @@ export default function App() {
                     </div>
                     <div>
                       <h4 className="font-serif text-sm font-bold text-white leading-tight">{jdg.name}</h4>
-                      <p className="text-[9px] text-brand-red uppercase font-black tracking-wider mt-0.5">{jdg.organization}</p>
+                      <p className="text-[9px] text-brand-green uppercase font-black tracking-wider mt-0.5">{jdg.organization}</p>
                       <p className="text-[10px] text-gray-400 leading-relaxed mt-1 line-clamp-3">{jdg.bio}</p>
                     </div>
                   </div>
@@ -516,7 +544,7 @@ export default function App() {
           <div id="view-conference" className="max-w-7xl mx-auto px-6 py-12 space-y-16 animate-slide-up">
             {/* Header */}
             <div className="border-b border-brand-grey pb-8">
-              <span className="text-xs text-brand-red font-black uppercase tracking-widest block mb-2">Sovereign Conclave</span>
+              <span className="text-xs text-brand-green font-black uppercase tracking-widest block mb-2">Sovereign Conclave</span>
               <h1 className="font-serif text-4xl md:text-6xl font-black text-white tracking-tight uppercase leading-none">UNDER50 CONFERENCE</h1>
               <p className="text-gray-400 text-sm max-w-xl mt-3 leading-relaxed">
                 Where the leaders reshaping enterprise meet to map regional progress. Standard seatings are strictly limited.
@@ -539,7 +567,7 @@ export default function App() {
                     </div>
                     <div>
                       <h4 className="font-serif text-base font-bold text-white">{spk.name}</h4>
-                      <p className="text-[10px] text-brand-red uppercase tracking-wider font-bold mt-0.5">{spk.position} at {spk.organization}</p>
+                      <p className="text-[10px] text-brand-green uppercase tracking-wider font-bold mt-0.5">{spk.position} at {spk.organization}</p>
                       <p className="text-[10px] text-gray-400 italic leading-relaxed mt-1 line-clamp-2">"{spk.topic}"</p>
                     </div>
                   </div>
@@ -554,7 +582,7 @@ export default function App() {
                 {initialSessions.map((sess) => (
                   <div key={sess.id} className="p-6 flex flex-col md:flex-row gap-6 hover:bg-brand-charcoal/20 transition-all">
                     <div className="w-24 flex-shrink-0">
-                      <span className="font-serif text-xl font-black text-brand-red">{sess.time}</span>
+                      <span className="font-serif text-xl font-black text-brand-green">{sess.time}</span>
                       <p className="text-[10px] uppercase tracking-widest text-gray-500 font-bold">{sess.category}</p>
                     </div>
                     <div className="flex-grow space-y-2">
@@ -578,7 +606,7 @@ export default function App() {
                   <div key={tier.id} className="bg-brand-charcoal border border-brand-grey p-6 flex flex-col justify-between space-y-6 sharp-border">
                     <div className="space-y-4">
                       <div>
-                        <span className="text-[9px] uppercase tracking-widest text-brand-red font-black block mb-1">Pass Tier</span>
+                        <span className="text-[9px] uppercase tracking-widest text-brand-green font-black block mb-1">Pass Tier</span>
                         <h4 className="font-serif text-xl font-bold text-white">{tier.name}</h4>
                       </div>
 
@@ -590,7 +618,7 @@ export default function App() {
                       <ul className="space-y-2 text-xs text-gray-400 list-none">
                         {tier.benefits.map((b, idx) => (
                           <li key={idx} className="flex items-start space-x-2">
-                            <Check className="w-3.5 h-3.5 text-brand-red mt-0.5 flex-shrink-0" />
+                            <Check className="w-3.5 h-3.5 text-brand-green mt-0.5 flex-shrink-0" />
                             <span>{b}</span>
                           </li>
                         ))}
@@ -602,7 +630,7 @@ export default function App() {
                         setSelectedTicket(tier);
                         setIsCheckoutOpen(true);
                       }}
-                      className="w-full bg-brand-red text-white py-3 text-xs uppercase tracking-widest font-black hover:bg-brand-red-hover transition-colors cursor-pointer sharp-border"
+                      className="w-full bg-brand-green text-white py-3 text-xs uppercase tracking-widest font-black hover:bg-brand-green-hover transition-colors cursor-pointer sharp-border"
                     >
                       Acquire Credentials →
                     </button>
@@ -617,7 +645,7 @@ export default function App() {
         {currentPage === "stories" && (
           <div id="view-stories" className="max-w-7xl mx-auto px-6 py-12 space-y-12 animate-slide-up">
             <div className="border-b border-brand-grey pb-8">
-              <span className="text-xs text-brand-red font-black uppercase tracking-widest block mb-2">Editorial Platform</span>
+              <span className="text-xs text-brand-green font-black uppercase tracking-widest block mb-2">Editorial Platform</span>
               <h1 className="font-serif text-4xl md:text-6xl font-black text-white tracking-tight uppercase leading-none">STORIES & ANALYSIS</h1>
               <p className="text-gray-400 text-sm max-w-xl mt-3 leading-relaxed">
                 Premium essays, honouree profiles, and sector research tracking the systemic development of regional industries.
@@ -630,15 +658,15 @@ export default function App() {
                 <div
                   key={story.id}
                   onClick={() => handleSelectStory(story.slug)}
-                  className="bg-brand-charcoal border border-brand-grey cursor-pointer group hover:border-brand-red/40 transition-all duration-300 flex flex-col justify-between sharp-border"
+                  className="bg-brand-charcoal border border-brand-grey cursor-pointer group hover:border-brand-green/40 transition-all duration-300 flex flex-col justify-between sharp-border"
                 >
                   <div className="aspect-video overflow-hidden bg-brand-black relative">
                     <img src={story.imageUrl} alt="" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300 animate-fadeIn" />
                   </div>
                   <div className="p-6 flex-grow flex flex-col justify-between min-h-[180px]">
                     <div>
-                      <span className="text-[10px] text-brand-red uppercase font-black">{story.category}</span>
-                      <h4 className="font-serif text-lg font-bold text-white mt-2 group-hover:text-brand-red transition-colors line-clamp-2">
+                      <span className="text-[10px] text-brand-green uppercase font-black">{story.category}</span>
+                      <h4 className="font-serif text-lg font-bold text-white mt-2 group-hover:text-brand-green transition-colors line-clamp-2">
                         {story.title}
                       </h4>
                       <p className="text-xs text-gray-400 mt-2 line-clamp-2">{story.excerpt}</p>
@@ -667,7 +695,7 @@ export default function App() {
             
             {/* Heading */}
             <div className="border-b border-brand-grey pb-8 text-center">
-              <span className="text-xs text-brand-red font-black uppercase tracking-widest block mb-2">Our Mission</span>
+              <span className="text-xs text-brand-green font-black uppercase tracking-widest block mb-2">Our Mission</span>
               <h1 className="font-serif text-4xl md:text-6xl font-bold text-white tracking-tight uppercase leading-none">A GENERATION WORTH WATCHING</h1>
               <p className="text-gray-400 text-sm max-w-xl mx-auto mt-3 leading-relaxed">
                 UNDER50 Nigeria is not merely an awards ceremony; it is a permanent institution celebrating and connecting the exceptional under-50 minds redefining local markets.
@@ -696,7 +724,7 @@ export default function App() {
                   { step: "06", name: "Recognition", desc: "Official grand induction Class list published and Yearbooks cataloged." }
                 ].map((mth) => (
                   <div key={mth.step} className="bg-brand-charcoal border border-brand-grey p-5 space-y-2 text-center sharp-border">
-                    <span className="font-mono text-xs text-brand-red font-black block">{mth.step}</span>
+                    <span className="font-mono text-xs text-brand-green font-black block">{mth.step}</span>
                     <h4 className="font-serif text-sm font-bold text-white">{mth.name}</h4>
                     <p className="text-[10px] text-gray-400 leading-relaxed">{mth.desc}</p>
                   </div>
@@ -762,7 +790,7 @@ export default function App() {
                 <div className="max-w-4xl mx-auto px-6 py-12 space-y-12">
                   <button
                     onClick={() => setCurrentPage("list")}
-                    className="text-xs uppercase tracking-widest font-bold text-gray-400 hover:text-brand-red flex items-center space-x-1 transition-colors cursor-pointer border border-brand-grey px-4 py-2 sharp-border"
+                    className="text-xs uppercase tracking-widest font-bold text-gray-400 hover:text-brand-green flex items-center space-x-1 transition-colors cursor-pointer border border-brand-grey px-4 py-2 sharp-border"
                   >
                     <span>← Retrack to Registry</span>
                   </button>
@@ -781,14 +809,14 @@ export default function App() {
                     {/* Meta */}
                     <div className="md:col-span-7 space-y-6">
                       <div className="space-y-2">
-                        <span className="text-xs text-brand-red font-black uppercase tracking-widest block">{person.category}</span>
+                        <span className="text-xs text-brand-green font-black uppercase tracking-widest block">{person.category}</span>
                         <h1 className="font-serif text-3xl md:text-5xl font-bold text-white leading-tight">{person.name}</h1>
-                        <p className="font-semibold text-lg text-gray-300">{person.title} at <span className="text-white border-b border-brand-red/50">{person.organization}</span></p>
+                        <p className="font-semibold text-lg text-gray-300">{person.title} at <span className="text-white border-b border-brand-green/50">{person.organization}</span></p>
                       </div>
 
                       <div className="flex items-center space-x-6 text-xs text-gray-500 font-bold uppercase tracking-wider">
                         <span className="flex items-center gap-1.5">
-                          <MapPin className="w-4 h-4 text-brand-red" />
+                          <MapPin className="w-4 h-4 text-brand-green" />
                           {person.state} Origin
                         </span>
                         <span>•</span>
@@ -796,7 +824,7 @@ export default function App() {
                       </div>
 
                       {person.quote && (
-                        <div className="bg-brand-charcoal p-6 border-l-2 border-brand-red italic text-sm md:text-base text-gray-300 font-serif leading-relaxed sharp-border">
+                        <div className="bg-brand-charcoal p-6 border-l-2 border-brand-green italic text-sm md:text-base text-gray-300 font-serif leading-relaxed sharp-border">
                           "{person.quote}"
                         </div>
                       )}
@@ -833,7 +861,7 @@ export default function App() {
           <div className="bg-brand-charcoal border border-brand-grey max-w-md w-full p-8 space-y-6 sharp-border" onClick={(e) => e.stopPropagation()}>
             <div className="flex justify-between items-center border-b border-brand-grey pb-4">
               <div>
-                <span className="text-[10px] text-brand-red font-black uppercase tracking-widest">Credential Checkout</span>
+                <span className="text-[10px] text-brand-green font-black uppercase tracking-widest">Credential Checkout</span>
                 <h3 className="font-serif text-xl font-bold text-white mt-1">Delegate Admission</h3>
               </div>
               <button onClick={() => setIsCheckoutOpen(false)} className="text-gray-400 hover:text-white p-1 cursor-pointer">
@@ -846,7 +874,7 @@ export default function App() {
                 <p className="text-white font-bold">{selectedTicket.name}</p>
                 <p className="text-gray-500 text-[10px] uppercase">Tier level pass</p>
               </div>
-              <p className="font-serif text-lg font-black text-brand-red">₦{selectedTicket.price.toLocaleString()}</p>
+              <p className="font-serif text-lg font-black text-brand-green">₦{selectedTicket.price.toLocaleString()}</p>
             </div>
 
             <form onSubmit={handleTicketCheckout} className="space-y-4 text-xs">
@@ -893,7 +921,7 @@ export default function App() {
               ) : (
                 <button
                   type="submit"
-                  className="w-full bg-brand-red text-white py-3 text-xs uppercase tracking-widest font-black hover:bg-brand-red-hover transition-colors cursor-pointer sharp-border border-b-2 border-brand-red-hover"
+                  className="w-full bg-brand-green text-white py-3 text-xs uppercase tracking-widest font-black hover:bg-brand-green-hover transition-colors cursor-pointer sharp-border border-b-2 border-brand-green-hover"
                 >
                   Pay secure with Paystack / Flutterwave
                 </button>
@@ -910,7 +938,7 @@ export default function App() {
           {/* Main info column */}
           <div className="md:col-span-5 space-y-6">
             <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-brand-red flex items-center justify-center font-serif text-white text-xl font-bold sharp-border">
+              <div className="w-10 h-10 bg-brand-green flex items-center justify-center font-serif text-white text-xl font-bold sharp-border">
                 50
               </div>
               <div className="flex flex-col">
@@ -928,7 +956,7 @@ export default function App() {
             </p>
 
             <div className="flex items-center space-x-2 text-[10px] text-gray-500 uppercase tracking-widest font-black">
-              <ShieldCheck className="w-4 h-4 text-brand-red" />
+              <ShieldCheck className="w-4 h-4 text-brand-green" />
               <span>Independent Selection Protocol</span>
             </div>
           </div>
@@ -947,7 +975,7 @@ export default function App() {
               <button onClick={() => { setCurrentPage("stories"); window.scrollTo({top:0,behavior:"smooth"}); }} className="block text-gray-400 hover:text-white cursor-pointer text-left">Stories & Essays</button>
               <button onClick={() => { setCurrentPage("insights"); window.scrollTo({top:0,behavior:"smooth"}); }} className="block text-gray-400 hover:text-white cursor-pointer text-left">Demographic Insights</button>
               <button onClick={() => { setCurrentPage("about"); window.scrollTo({top:0,behavior:"smooth"}); }} className="block text-gray-400 hover:text-white cursor-pointer text-left">Our Manifesto</button>
-              <button onClick={() => { setCurrentPage("nominate"); window.scrollTo({top:0,behavior:"smooth"}); }} className="block text-brand-red hover:underline cursor-pointer text-left font-bold">Nominate Leader</button>
+              <button onClick={() => { setCurrentPage("nominate"); window.scrollTo({top:0,behavior:"smooth"}); }} className="block text-brand-green hover:underline cursor-pointer text-left font-bold">Nominate Leader</button>
             </div>
           </div>
 
@@ -961,7 +989,7 @@ export default function App() {
                   href={sc === "WhatsApp" ? settings.whatsappContact : "#"}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-xs text-gray-400 hover:text-white border border-brand-grey hover:border-brand-red px-3 py-1.5 transition-colors sharp-border"
+                  className="text-xs text-gray-400 hover:text-white border border-brand-grey hover:border-brand-green px-3 py-1.5 transition-colors sharp-border"
                 >
                   {sc}
                 </a>

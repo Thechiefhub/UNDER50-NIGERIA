@@ -40,8 +40,8 @@ export default function EventCountdown({ targetDateStr, targetTimeStr }: EventCo
 
   if (timeLeft.isOver) {
     return (
-      <div id="countdown-live-panel" className="text-center p-8 bg-brand-charcoal border border-brand-red select-none">
-        <span className="w-2 h-2 inline-block bg-brand-red rounded-full mr-2 animate-ping"></span>
+      <div id="countdown-live-panel" className="text-center p-8 bg-brand-charcoal border border-brand-green select-none">
+        <span className="w-2 h-2 inline-block bg-brand-green rounded-full mr-2 animate-ping"></span>
         <h3 className="font-serif text-3xl font-black text-white tracking-widest inline-block">
           THE MOMENT IS HERE.
         </h3>

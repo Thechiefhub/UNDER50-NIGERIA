@@ -10,11 +10,11 @@ export default function Manifesto() {
       </div>
 
       <div className="max-w-5xl mx-auto px-6 text-center space-y-10 relative">
-        <div className="w-12 h-12 bg-brand-red flex items-center justify-center mx-auto mb-6">
+        <div className="w-12 h-12 bg-brand-green flex items-center justify-center mx-auto mb-6">
           <Award className="w-6 h-6 text-white" />
         </div>
 
-        <span className="text-xs text-brand-red font-black uppercase tracking-widest block mb-2">
+        <span className="text-xs text-brand-green font-black uppercase tracking-widest block mb-2">
           THE UNDER50 MANIFESTO
         </span>
 
@@ -34,7 +34,7 @@ export default function Manifesto() {
         </p>
 
         <div className="flex items-center justify-center gap-2 pt-6 text-[10px] text-gray-500 uppercase tracking-widest font-black">
-          <ShieldCheck className="w-4 h-4 text-brand-red" />
+          <ShieldCheck className="w-4 h-4 text-brand-green" />
           <span>Independent. Audited. Systemic.</span>
         </div>
       </div>

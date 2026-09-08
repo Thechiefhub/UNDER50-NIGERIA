@@ -244,7 +244,7 @@ export default function AdminDashboard({
     return (
       <div id="admin-gate-screen" className="max-w-md mx-auto px-6 py-24">
         <div className="bg-brand-charcoal border border-brand-grey p-8 text-center shadow-xl shadow-black/80">
-          <ShieldAlert className="w-12 h-12 text-brand-red mx-auto mb-4" />
+          <ShieldAlert className="w-12 h-12 text-brand-green mx-auto mb-4" />
           <h2 className="font-serif text-2xl font-bold text-white mb-2">ADMIN SECURE SIGN-IN</h2>
           <p className="text-gray-400 text-xs mb-6">Enter official gateway credentials to modify the UNDER50 registry.</p>
           <form onSubmit={handleLogin} className="space-y-4 text-left">
@@ -255,13 +255,13 @@ export default function AdminDashboard({
                 placeholder="Hint: admin50"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="bg-brand-black border border-brand-grey p-3 text-sm text-white focus:outline-none focus:border-brand-red"
+                className="bg-brand-black border border-brand-grey p-3 text-sm text-white focus:outline-none focus:border-brand-green"
               />
             </div>
-            {authError && <p className="text-xs text-brand-red font-bold">{authError}</p>}
+            {authError && <p className="text-xs text-brand-green font-bold">{authError}</p>}
             <button
               type="submit"
-              className="w-full bg-brand-red text-white py-3 text-xs uppercase tracking-widest font-black hover:bg-brand-red-hover transition-colors cursor-pointer"
+              className="w-full bg-brand-green text-white py-3 text-xs uppercase tracking-widest font-black hover:bg-brand-green-hover transition-colors cursor-pointer"
             >
               Authorize Gate Entry
             </button>
@@ -277,7 +277,7 @@ export default function AdminDashboard({
       <aside className="w-full lg:w-64 flex-shrink-0">
         <div className="bg-brand-charcoal border border-brand-grey p-6 flex flex-col space-y-6">
           <div className="border-b border-brand-grey pb-4">
-            <p className="text-[10px] text-brand-red uppercase tracking-widest font-black">Authorized Shell</p>
+            <p className="text-[10px] text-brand-green uppercase tracking-widest font-black">Authorized Shell</p>
             <h3 className="font-serif text-lg font-bold text-white">CONTROL CENTRE</h3>
             <p className="text-gray-500 text-[10px] uppercase font-mono mt-0.5">Role: Super Admin</p>
           </div>
@@ -286,7 +286,7 @@ export default function AdminDashboard({
             <button
               onClick={() => setActiveTab("overview")}
               className={`flex items-center space-x-3 px-4 py-3 text-xs uppercase tracking-widest font-bold transition-colors cursor-pointer ${
-                activeTab === "overview" ? "bg-brand-red text-white" : "text-gray-400 hover:text-white hover:bg-brand-black/40"
+                activeTab === "overview" ? "bg-brand-green text-white" : "text-gray-400 hover:text-white hover:bg-brand-black/40"
               }`}
             >
               <BarChart2 className="w-4 h-4" />
@@ -295,7 +295,7 @@ export default function AdminDashboard({
             <button
               onClick={() => setActiveTab("honourees")}
               className={`flex items-center space-x-3 px-4 py-3 text-xs uppercase tracking-widest font-bold transition-colors cursor-pointer ${
-                activeTab === "honourees" ? "bg-brand-red text-white" : "text-gray-400 hover:text-white hover:bg-brand-black/40"
+                activeTab === "honourees" ? "bg-brand-green text-white" : "text-gray-400 hover:text-white hover:bg-brand-black/40"
               }`}
             >
               <Users className="w-4 h-4" />
@@ -304,7 +304,7 @@ export default function AdminDashboard({
             <button
               onClick={() => setActiveTab("nominations")}
               className={`flex items-center space-x-3 px-4 py-3 text-xs uppercase tracking-widest font-bold transition-colors cursor-pointer ${
-                activeTab === "nominations" ? "bg-brand-red text-white" : "text-gray-400 hover:text-white hover:bg-brand-black/40"
+                activeTab === "nominations" ? "bg-brand-green text-white" : "text-gray-400 hover:text-white hover:bg-brand-black/40"
               }`}
             >
               <Award className="w-4 h-4" />
@@ -313,7 +313,7 @@ export default function AdminDashboard({
             <button
               onClick={() => setActiveTab("stories")}
               className={`flex items-center space-x-3 px-4 py-3 text-xs uppercase tracking-widest font-bold transition-colors cursor-pointer ${
-                activeTab === "stories" ? "bg-brand-red text-white" : "text-gray-400 hover:text-white hover:bg-brand-black/40"
+                activeTab === "stories" ? "bg-brand-green text-white" : "text-gray-400 hover:text-white hover:bg-brand-black/40"
               }`}
             >
               <FileText className="w-4 h-4" />
@@ -322,7 +322,7 @@ export default function AdminDashboard({
             <button
               onClick={() => setActiveTab("settings")}
               className={`flex items-center space-x-3 px-4 py-3 text-xs uppercase tracking-widest font-bold transition-colors cursor-pointer ${
-                activeTab === "settings" ? "bg-brand-red text-white" : "text-gray-400 hover:text-white hover:bg-brand-black/40"
+                activeTab === "settings" ? "bg-brand-green text-white" : "text-gray-400 hover:text-white hover:bg-brand-black/40"
               }`}
             >
               <Settings className="w-4 h-4" />
@@ -332,7 +332,7 @@ export default function AdminDashboard({
 
           <button
             onClick={() => setIsAdmin(false)}
-            className="text-left text-xs uppercase text-gray-500 hover:text-brand-red transition-colors pt-4 border-t border-brand-grey/50 cursor-pointer"
+            className="text-left text-xs uppercase text-gray-500 hover:text-brand-green transition-colors pt-4 border-t border-brand-grey/50 cursor-pointer"
           >
             Lock Terminal
           </button>
@@ -361,7 +361,7 @@ export default function AdminDashboard({
               <div className="bg-brand-black border border-brand-grey p-6">
                 <p className="text-[10px] text-gray-500 uppercase tracking-widest font-black">Official Inductees</p>
                 <p className="font-serif text-4xl font-bold text-white mt-1">{honourees.length}</p>
-                <p className="text-[9px] text-brand-red font-bold mt-2">Class of 2025 & 2026</p>
+                <p className="text-[9px] text-brand-green font-bold mt-2">Class of 2025 & 2026</p>
               </div>
               <div className="bg-brand-black border border-brand-grey p-6">
                 <p className="text-[10px] text-gray-500 uppercase tracking-widest font-black">Total Submissions</p>
@@ -376,7 +376,7 @@ export default function AdminDashboard({
               <div className="bg-brand-black border border-brand-grey p-6">
                 <p className="text-[10px] text-gray-500 uppercase tracking-widest font-black">Stories Drafted</p>
                 <p className="font-serif text-4xl font-bold text-white mt-1">{stories.length}</p>
-                <p className="text-[9px] text-brand-red font-bold mt-2">Live Publication</p>
+                <p className="text-[9px] text-brand-green font-bold mt-2">Live Publication</p>
               </div>
             </div>
 
@@ -394,7 +394,7 @@ export default function AdminDashboard({
                           <span className="text-white font-bold">{count} ({pct.toFixed(0)}%)</span>
                         </div>
                         <div className="w-full h-1.5 bg-brand-grey">
-                          <div className="h-full bg-brand-red" style={{ width: `${pct}%` }} />
+                          <div className="h-full bg-brand-green" style={{ width: `${pct}%` }} />
                         </div>
                       </div>
                     );
@@ -414,7 +414,7 @@ export default function AdminDashboard({
                           <span className="text-white font-bold">{count} ({pct.toFixed(0)}%)</span>
                         </div>
                         <div className="w-full h-1.5 bg-brand-grey">
-                          <div className="h-full bg-brand-red" style={{ width: `${pct}%` }} />
+                          <div className="h-full bg-brand-green" style={{ width: `${pct}%` }} />
                         </div>
                       </div>
                     );
@@ -447,7 +447,7 @@ export default function AdminDashboard({
               <button
                 id="admin-add-person-btn"
                 onClick={handleAddPersonClick}
-                className="bg-brand-red text-white text-xs uppercase tracking-widest font-black px-4 py-2.5 hover:bg-brand-red-hover transition-colors flex items-center space-x-2 cursor-pointer self-start sm:self-auto"
+                className="bg-brand-green text-white text-xs uppercase tracking-widest font-black px-4 py-2.5 hover:bg-brand-green-hover transition-colors flex items-center space-x-2 cursor-pointer self-start sm:self-auto"
               >
                 <Plus className="w-4 h-4" />
                 <span>Induct Leader</span>
@@ -482,7 +482,7 @@ export default function AdminDashboard({
                         <p className="font-bold text-white">{p.name}</p>
                         <p className="text-gray-400 text-[10px] mt-0.5">{p.title} at {p.organization}</p>
                       </td>
-                      <td className="p-4 text-brand-red font-semibold">{p.category}</td>
+                      <td className="p-4 text-brand-green font-semibold">{p.category}</td>
                       <td className="p-4">
                         <p className="text-white">{p.state} State</p>
                         <p className="text-gray-500 text-[9px] mt-0.5">UNDER50 {p.country}</p>
@@ -504,7 +504,7 @@ export default function AdminDashboard({
                         </button>
                         <button
                           onClick={() => handleDeletePerson(p.id)}
-                          className="p-1.5 text-gray-500 hover:text-brand-red hover:bg-brand-black rounded transition-all cursor-pointer"
+                          className="p-1.5 text-gray-500 hover:text-brand-green hover:bg-brand-black rounded transition-all cursor-pointer"
                           title="Delete"
                         >
                           <Trash2 className="w-4 h-4" />
@@ -535,7 +535,7 @@ export default function AdminDashboard({
                     <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-brand-grey/40 pb-4">
                       <div>
                         <div className="flex items-center space-x-2 text-[10px] uppercase font-bold text-gray-400">
-                          <span className="text-brand-red font-black">ID: {nom.id}</span>
+                          <span className="text-brand-green font-black">ID: {nom.id}</span>
                           <span>•</span>
                           <span>Submitted {nom.dateSubmitted}</span>
                         </div>
@@ -553,7 +553,7 @@ export default function AdminDashboard({
                             nom.status === NominationStatus.WINNER
                               ? "bg-green-500 text-black border-green-500"
                               : nom.status === NominationStatus.SHORTLISTED
-                              ? "bg-brand-red text-white border-brand-red"
+                              ? "bg-brand-green text-white border-brand-green"
                               : nom.status === NominationStatus.UNDER_REVIEW
                               ? "bg-white text-black border-white"
                               : "bg-brand-black text-white"
@@ -582,7 +582,7 @@ export default function AdminDashboard({
                         <p className="text-gray-300 mt-1">{nom.impactDescription}</p>
 
                         <div className="mt-4 p-3 bg-brand-charcoal border border-brand-grey/50">
-                          <p className="text-[9px] text-brand-red uppercase font-black">Endorsing Referee</p>
+                          <p className="text-[9px] text-brand-green uppercase font-black">Endorsing Referee</p>
                           <p className="text-white font-bold mt-0.5">{nom.refereeName}</p>
                           <p className="text-[10px] text-gray-400 mt-0.5">{nom.refereeEmail} • {nom.refereePhone}</p>
                         </div>
@@ -618,7 +618,7 @@ export default function AdminDashboard({
                   });
                   setShowStoryModal(true);
                 }}
-                className="bg-brand-red text-white text-xs uppercase tracking-widest font-black px-4 py-2.5 hover:bg-brand-red-hover transition-colors flex items-center space-x-2 cursor-pointer"
+                className="bg-brand-green text-white text-xs uppercase tracking-widest font-black px-4 py-2.5 hover:bg-brand-green-hover transition-colors flex items-center space-x-2 cursor-pointer"
               >
                 <Plus className="w-4 h-4" />
                 <span>Publish Article</span>
@@ -632,7 +632,7 @@ export default function AdminDashboard({
                   <div className="flex items-center space-x-4">
                     <img src={s.imageUrl} alt="" className="w-16 h-12 object-cover grayscale" />
                     <div>
-                      <div className="text-[9px] uppercase tracking-wider font-bold text-brand-red mb-0.5">{s.category}</div>
+                      <div className="text-[9px] uppercase tracking-wider font-bold text-brand-green mb-0.5">{s.category}</div>
                       <h4 className="font-serif text-base font-bold text-white">{s.title}</h4>
                       <p className="text-gray-400 text-[10px] mt-0.5">By {s.author} • Published {s.date}</p>
                     </div>
@@ -660,7 +660,7 @@ export default function AdminDashboard({
                     </button>
                     <button
                       onClick={() => handleDeleteStory(s.id)}
-                      className="p-1.5 text-gray-500 hover:text-brand-red hover:bg-brand-charcoal border border-transparent hover:border-brand-grey cursor-pointer"
+                      className="p-1.5 text-gray-500 hover:text-brand-green hover:bg-brand-charcoal border border-transparent hover:border-brand-grey cursor-pointer"
                     >
                       <Trash2 className="w-3.5 h-3.5" />
                     </button>
@@ -945,7 +945,7 @@ export default function AdminDashboard({
                 </button>
                 <button
                   type="submit"
-                  className="bg-brand-red text-white px-6 py-2 hover:bg-brand-red-hover transition-colors cursor-pointer font-bold uppercase tracking-widest"
+                  className="bg-brand-green text-white px-6 py-2 hover:bg-brand-green-hover transition-colors cursor-pointer font-bold uppercase tracking-widest"
                 >
                   Save Inductee
                 </button>
@@ -1042,7 +1042,7 @@ export default function AdminDashboard({
                 </button>
                 <button
                   type="submit"
-                  className="bg-brand-red text-white px-6 py-2 hover:bg-brand-red-hover transition-colors cursor-pointer font-bold uppercase tracking-widest"
+                  className="bg-brand-green text-white px-6 py-2 hover:bg-brand-green-hover transition-colors cursor-pointer font-bold uppercase tracking-widest"
                 >
                   Save Story
                 </button>

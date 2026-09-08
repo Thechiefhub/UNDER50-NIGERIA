@@ -154,7 +154,7 @@ export default function NominationForm({ categories, onAddNomination }: Nominati
   if (success) {
     return (
       <div id="nomination-success-card" className="max-w-3xl mx-auto px-6 py-24 text-center">
-        <div className="w-20 h-20 bg-brand-red flex items-center justify-center mx-auto mb-8 shadow-lg shadow-brand-red/20">
+        <div className="w-20 h-20 bg-brand-green flex items-center justify-center mx-auto mb-8 shadow-lg shadow-brand-green/20">
           <Check className="w-10 h-10 text-white stroke-[3px]" />
         </div>
         <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mb-4">
@@ -164,7 +164,7 @@ export default function NominationForm({ categories, onAddNomination }: Nominati
           Thank you for participating in the selection process. The UNDER50 Advisory Board and audit partners (PwC) will review this submission against the official leadership index benchmarks.
         </p>
         <div className="bg-brand-charcoal border border-brand-grey p-6 max-w-lg mx-auto text-left mb-12">
-          <p className="text-xs text-brand-red font-black uppercase tracking-wider mb-2">Reference ID: U50-NOM-{(Math.random() * 100000).toFixed(0)}</p>
+          <p className="text-xs text-brand-green font-black uppercase tracking-wider mb-2">Reference ID: U50-NOM-{(Math.random() * 100000).toFixed(0)}</p>
           <p className="text-sm text-gray-300">A confirmation receipt has been dispatched to <span className="text-white font-bold">{form.nomineeEmail}</span> and referee <span className="text-white font-bold">{form.refereeEmail}</span> with further instructions.</p>
         </div>
         <button
@@ -191,7 +191,7 @@ export default function NominationForm({ categories, onAddNomination }: Nominati
               terms: false
             });
           }}
-          className="border border-brand-red text-white text-xs uppercase tracking-widest font-black px-8 py-3.5 hover:bg-brand-red transition-all cursor-pointer"
+          className="border border-brand-green text-white text-xs uppercase tracking-widest font-black px-8 py-3.5 hover:bg-brand-green transition-all cursor-pointer"
         >
           Submit Another Nomination
         </button>
@@ -203,7 +203,7 @@ export default function NominationForm({ categories, onAddNomination }: Nominati
     <div id="nomination-experience" className="max-w-4xl mx-auto px-6 py-12">
       {/* Editorial Title */}
       <div className="border-b border-brand-grey pb-8 mb-10 text-center">
-        <span className="text-xs text-brand-red font-black uppercase tracking-widest block mb-2">Institutional Review</span>
+        <span className="text-xs text-brand-green font-black uppercase tracking-widest block mb-2">Institutional Review</span>
         <h1 className="font-serif text-3xl md:text-5xl font-bold text-white">SUBMIT A NOMINATION</h1>
         <p className="text-gray-400 text-xs md:text-sm max-w-lg mx-auto mt-2">
           Identify and document exceptional Nigerians under 50 who are transforming industry landscapes and creating measurable societal progress.
@@ -222,9 +222,9 @@ export default function NominationForm({ categories, onAddNomination }: Nominati
               <div
                 className={`w-8 h-8 flex items-center justify-center text-xs font-bold transition-all duration-300 ${
                   isDone
-                    ? "bg-brand-red text-white"
+                    ? "bg-brand-green text-white"
                     : isActive
-                    ? "bg-white text-black ring-4 ring-brand-red/30"
+                    ? "bg-white text-black ring-4 ring-brand-green/30"
                     : "bg-brand-charcoal text-gray-500 border border-brand-grey"
                 }`}
               >
@@ -232,7 +232,7 @@ export default function NominationForm({ categories, onAddNomination }: Nominati
               </div>
               <span
                 className={`text-[9px] uppercase tracking-wider mt-2 font-black ${
-                  isActive ? "text-brand-red" : isDone ? "text-white" : "text-gray-500"
+                  isActive ? "text-brand-green" : isDone ? "text-white" : "text-gray-500"
                 }`}
               >
                 Step {sNum}
@@ -249,7 +249,7 @@ export default function NominationForm({ categories, onAddNomination }: Nominati
         </span>
         <div className="w-12 h-1.5 bg-brand-grey rounded-full overflow-hidden">
           <div
-            className="h-full bg-brand-red transition-all duration-300"
+            className="h-full bg-brand-green transition-all duration-300"
             style={{ width: `${(step / 7) * 100}%` }}
           />
         </div>
@@ -283,9 +283,9 @@ export default function NominationForm({ categories, onAddNomination }: Nominati
                   value={form.nomineeName}
                   onChange={handleChange}
                   placeholder="e.g. Amina Adebayo"
-                  className="bg-brand-black border border-brand-grey p-3.5 text-sm focus:outline-none focus:border-brand-red transition-all"
+                  className="bg-brand-black border border-brand-grey p-3.5 text-sm focus:outline-none focus:border-brand-green transition-all"
                 />
-                {errors.nomineeName && <p className="text-xs text-brand-red font-bold uppercase tracking-wider">{errors.nomineeName}</p>}
+                {errors.nomineeName && <p className="text-xs text-brand-green font-bold uppercase tracking-wider">{errors.nomineeName}</p>}
               </div>
 
               <div className="flex flex-col space-y-2">
@@ -298,9 +298,9 @@ export default function NominationForm({ categories, onAddNomination }: Nominati
                   value={form.nomineeEmail}
                   onChange={handleChange}
                   placeholder="e.g. amina@helios.ng"
-                  className="bg-brand-black border border-brand-grey p-3.5 text-sm focus:outline-none focus:border-brand-red transition-all"
+                  className="bg-brand-black border border-brand-grey p-3.5 text-sm focus:outline-none focus:border-brand-green transition-all"
                 />
-                {errors.nomineeEmail && <p className="text-xs text-brand-red font-bold uppercase tracking-wider">{errors.nomineeEmail}</p>}
+                {errors.nomineeEmail && <p className="text-xs text-brand-green font-bold uppercase tracking-wider">{errors.nomineeEmail}</p>}
               </div>
 
               <div className="flex flex-col space-y-2 md:col-span-2">
@@ -313,9 +313,9 @@ export default function NominationForm({ categories, onAddNomination }: Nominati
                   value={form.nomineePhone}
                   onChange={handleChange}
                   placeholder="e.g. +234 803 123 4567"
-                  className="bg-brand-black border border-brand-grey p-3.5 text-sm focus:outline-none focus:border-brand-red transition-all"
+                  className="bg-brand-black border border-brand-grey p-3.5 text-sm focus:outline-none focus:border-brand-green transition-all"
                 />
-                {errors.nomineePhone && <p className="text-xs text-brand-red font-bold uppercase tracking-wider">{errors.nomineePhone}</p>}
+                {errors.nomineePhone && <p className="text-xs text-brand-green font-bold uppercase tracking-wider">{errors.nomineePhone}</p>}
               </div>
             </div>
           </div>
@@ -339,9 +339,9 @@ export default function NominationForm({ categories, onAddNomination }: Nominati
                   value={form.nomineeTitle}
                   onChange={handleChange}
                   placeholder="e.g. Chief Executive Officer / Founder"
-                  className="bg-brand-black border border-brand-grey p-3.5 text-sm focus:outline-none focus:border-brand-red transition-all"
+                  className="bg-brand-black border border-brand-grey p-3.5 text-sm focus:outline-none focus:border-brand-green transition-all"
                 />
-                {errors.nomineeTitle && <p className="text-xs text-brand-red font-bold uppercase tracking-wider">{errors.nomineeTitle}</p>}
+                {errors.nomineeTitle && <p className="text-xs text-brand-green font-bold uppercase tracking-wider">{errors.nomineeTitle}</p>}
               </div>
 
               <div className="flex flex-col space-y-2">
@@ -354,9 +354,9 @@ export default function NominationForm({ categories, onAddNomination }: Nominati
                   value={form.nomineeOrg}
                   onChange={handleChange}
                   placeholder="e.g. Helios Fintech"
-                  className="bg-brand-black border border-brand-grey p-3.5 text-sm focus:outline-none focus:border-brand-red transition-all"
+                  className="bg-brand-black border border-brand-grey p-3.5 text-sm focus:outline-none focus:border-brand-green transition-all"
                 />
-                {errors.nomineeOrg && <p className="text-xs text-brand-red font-bold uppercase tracking-wider">{errors.nomineeOrg}</p>}
+                {errors.nomineeOrg && <p className="text-xs text-brand-green font-bold uppercase tracking-wider">{errors.nomineeOrg}</p>}
               </div>
 
               <div className="flex flex-col space-y-2">
@@ -367,7 +367,7 @@ export default function NominationForm({ categories, onAddNomination }: Nominati
                   name="nomineeCategory"
                   value={form.nomineeCategory}
                   onChange={handleChange}
-                  className="bg-brand-black border border-brand-grey p-3.5 text-sm focus:outline-none focus:border-brand-red text-white cursor-pointer"
+                  className="bg-brand-black border border-brand-grey p-3.5 text-sm focus:outline-none focus:border-brand-green text-white cursor-pointer"
                 >
                   <option value="">-- Choose Category --</option>
                   {categories.map((c) => (
@@ -376,7 +376,7 @@ export default function NominationForm({ categories, onAddNomination }: Nominati
                     </option>
                   ))}
                 </select>
-                {errors.nomineeCategory && <p className="text-xs text-brand-red font-bold uppercase tracking-wider">{errors.nomineeCategory}</p>}
+                {errors.nomineeCategory && <p className="text-xs text-brand-green font-bold uppercase tracking-wider">{errors.nomineeCategory}</p>}
               </div>
 
               <div className="flex flex-col space-y-2">
@@ -387,7 +387,7 @@ export default function NominationForm({ categories, onAddNomination }: Nominati
                   name="nomineeIndustry"
                   value={form.nomineeIndustry}
                   onChange={handleChange}
-                  className="bg-brand-black border border-brand-grey p-3.5 text-sm focus:outline-none focus:border-brand-red text-white cursor-pointer"
+                  className="bg-brand-black border border-brand-grey p-3.5 text-sm focus:outline-none focus:border-brand-green text-white cursor-pointer"
                 >
                   <option value="">-- Choose Industry --</option>
                   <option value="FinTech">FinTech</option>
@@ -399,7 +399,7 @@ export default function NominationForm({ categories, onAddNomination }: Nominati
                   <option value="Venture Capital">Venture Capital</option>
                   <option value="Real Estate">Real Estate</option>
                 </select>
-                {errors.nomineeIndustry && <p className="text-xs text-brand-red font-bold uppercase tracking-wider">{errors.nomineeIndustry}</p>}
+                {errors.nomineeIndustry && <p className="text-xs text-brand-green font-bold uppercase tracking-wider">{errors.nomineeIndustry}</p>}
               </div>
 
               <div className="flex flex-col space-y-2 md:col-span-2">
@@ -410,7 +410,7 @@ export default function NominationForm({ categories, onAddNomination }: Nominati
                   name="nomineeState"
                   value={form.nomineeState}
                   onChange={handleChange}
-                  className="bg-brand-black border border-brand-grey p-3.5 text-sm focus:outline-none focus:border-brand-red text-white cursor-pointer"
+                  className="bg-brand-black border border-brand-grey p-3.5 text-sm focus:outline-none focus:border-brand-green text-white cursor-pointer"
                 >
                   <option value="">-- Choose State --</option>
                   <option value="Lagos">Lagos</option>
@@ -423,7 +423,7 @@ export default function NominationForm({ categories, onAddNomination }: Nominati
                   <option value="Ogun">Ogun</option>
                   <option value="Kaduna">Kaduna</option>
                 </select>
-                {errors.nomineeState && <p className="text-xs text-brand-red font-bold uppercase tracking-wider">{errors.nomineeState}</p>}
+                {errors.nomineeState && <p className="text-xs text-brand-green font-bold uppercase tracking-wider">{errors.nomineeState}</p>}
               </div>
             </div>
           </div>
@@ -447,10 +447,10 @@ export default function NominationForm({ categories, onAddNomination }: Nominati
                 onChange={handleChange}
                 rows={6}
                 placeholder="Detail key metrics, patents, volume of business scaled, capital raised, or institutional barriers broken under their direct stewardship..."
-                className="bg-brand-black border border-brand-grey p-4 text-sm focus:outline-none focus:border-brand-red transition-all font-sans leading-relaxed"
+                className="bg-brand-black border border-brand-grey p-4 text-sm focus:outline-none focus:border-brand-green transition-all font-sans leading-relaxed"
               />
               <p className="text-[10px] text-gray-500 italic">Provide high-integrity quantitative proof metrics where possible (e.g., jobs created, percentage yields increased).</p>
-              {errors.achievements && <p className="text-xs text-brand-red font-bold uppercase tracking-wider">{errors.achievements}</p>}
+              {errors.achievements && <p className="text-xs text-brand-green font-bold uppercase tracking-wider">{errors.achievements}</p>}
             </div>
           </div>
         )}
@@ -473,9 +473,9 @@ export default function NominationForm({ categories, onAddNomination }: Nominati
                 onChange={handleChange}
                 rows={6}
                 placeholder="Explain how their leadership has impacted civil society, solved chronic inefficiencies, or positioned Nigeria on the global stage of technical excellence..."
-                className="bg-brand-black border border-brand-grey p-4 text-sm focus:outline-none focus:border-brand-red transition-all font-sans leading-relaxed"
+                className="bg-brand-black border border-brand-grey p-4 text-sm focus:outline-none focus:border-brand-green transition-all font-sans leading-relaxed"
               />
-              {errors.impactDescription && <p className="text-xs text-brand-red font-bold uppercase tracking-wider">{errors.impactDescription}</p>}
+              {errors.impactDescription && <p className="text-xs text-brand-green font-bold uppercase tracking-wider">{errors.impactDescription}</p>}
             </div>
           </div>
         )}
@@ -490,7 +490,7 @@ export default function NominationForm({ categories, onAddNomination }: Nominati
             <div className="grid grid-cols-1 gap-6">
               {/* Image Upload Simulator */}
               <div className="border border-dashed border-brand-grey p-8 text-center bg-brand-black/30">
-                <Upload className="w-10 h-10 text-brand-red mx-auto mb-3" />
+                <Upload className="w-10 h-10 text-brand-green mx-auto mb-3" />
                 <h4 className="text-sm font-bold uppercase tracking-wider mb-1">Simulate Portrait Image Upload</h4>
                 <p className="text-xs text-gray-500 mb-4">Drag and drop or click to simulate high-resolution JPG or PNG (Max 5MB)</p>
                 <div className="flex justify-center space-x-2">
@@ -539,7 +539,7 @@ export default function NominationForm({ categories, onAddNomination }: Nominati
                   value={form.supportingEvidenceUrl}
                   onChange={handleChange}
                   placeholder="e.g. https://mycompany.com/report.pdf or google drive folder"
-                  className="bg-brand-black border border-brand-grey p-3.5 text-sm focus:outline-none focus:border-brand-red transition-all"
+                  className="bg-brand-black border border-brand-grey p-3.5 text-sm focus:outline-none focus:border-brand-green transition-all"
                 />
               </div>
             </div>
@@ -553,7 +553,7 @@ export default function NominationForm({ categories, onAddNomination }: Nominati
               06. NOMINATION REFEREE / VERIFIER
             </h3>
             
-            <p className="text-xs text-gray-400 leading-relaxed bg-brand-black p-4 border-l-2 border-brand-red">
+            <p className="text-xs text-gray-400 leading-relaxed bg-brand-black p-4 border-l-2 border-brand-green">
               To verify credentials, every nomination requires an endorsement from an industry referee (e.g. board member, corporate auditor, senior colleague, or regional council head).
             </p>
 
@@ -568,9 +568,9 @@ export default function NominationForm({ categories, onAddNomination }: Nominati
                   value={form.refereeName}
                   onChange={handleChange}
                   placeholder="e.g. Professor Kenneth Okafor"
-                  className="bg-brand-black border border-brand-grey p-3.5 text-sm focus:outline-none focus:border-brand-red transition-all"
+                  className="bg-brand-black border border-brand-grey p-3.5 text-sm focus:outline-none focus:border-brand-green transition-all"
                 />
-                {errors.refereeName && <p className="text-xs text-brand-red font-bold uppercase tracking-wider">{errors.refereeName}</p>}
+                {errors.refereeName && <p className="text-xs text-brand-green font-bold uppercase tracking-wider">{errors.refereeName}</p>}
               </div>
 
               <div className="flex flex-col space-y-2">
@@ -583,9 +583,9 @@ export default function NominationForm({ categories, onAddNomination }: Nominati
                   value={form.refereeEmail}
                   onChange={handleChange}
                   placeholder="e.g. k.okafor@university.edu"
-                  className="bg-brand-black border border-brand-grey p-3.5 text-sm focus:outline-none focus:border-brand-red transition-all"
+                  className="bg-brand-black border border-brand-grey p-3.5 text-sm focus:outline-none focus:border-brand-green transition-all"
                 />
-                {errors.refereeEmail && <p className="text-xs text-brand-red font-bold uppercase tracking-wider">{errors.refereeEmail}</p>}
+                {errors.refereeEmail && <p className="text-xs text-brand-green font-bold uppercase tracking-wider">{errors.refereeEmail}</p>}
               </div>
 
               <div className="flex flex-col space-y-2 md:col-span-2">
@@ -598,9 +598,9 @@ export default function NominationForm({ categories, onAddNomination }: Nominati
                   value={form.refereePhone}
                   onChange={handleChange}
                   placeholder="e.g. +234 805 123 4567"
-                  className="bg-brand-black border border-brand-grey p-3.5 text-sm focus:outline-none focus:border-brand-red transition-all"
+                  className="bg-brand-black border border-brand-grey p-3.5 text-sm focus:outline-none focus:border-brand-green transition-all"
                 />
-                {errors.refereePhone && <p className="text-xs text-brand-red font-bold uppercase tracking-wider">{errors.refereePhone}</p>}
+                {errors.refereePhone && <p className="text-xs text-brand-green font-bold uppercase tracking-wider">{errors.refereePhone}</p>}
               </div>
             </div>
           </div>
@@ -621,7 +621,7 @@ export default function NominationForm({ categories, onAddNomination }: Nominati
               </div>
               <div>
                 <p className="text-gray-500 uppercase tracking-widest font-black">Category</p>
-                <p className="text-brand-red text-sm font-bold mt-0.5">{form.nomineeCategory}</p>
+                <p className="text-brand-green text-sm font-bold mt-0.5">{form.nomineeCategory}</p>
               </div>
               <div>
                 <p className="text-gray-500 uppercase tracking-widest font-black">Designation</p>
@@ -645,13 +645,13 @@ export default function NominationForm({ categories, onAddNomination }: Nominati
                   name="consent"
                   checked={form.consent}
                   onChange={handleChange}
-                  className="mt-1 w-4 h-4 text-brand-red border-brand-grey bg-brand-black focus:ring-brand-red cursor-pointer"
+                  className="mt-1 w-4 h-4 text-brand-green border-brand-grey bg-brand-black focus:ring-brand-green cursor-pointer"
                 />
                 <label className="text-xs text-gray-400 leading-relaxed">
                   I hereby declare that all metrics, biographical statements, and supporting portfolio evidence provided in this nomination are true, accurate, and verifiable. I understand that the Advisory Board and PwC reserves the right to disqualify submissions containing fraudulent metrics. *
                 </label>
               </div>
-              {errors.consent && <p className="text-xs text-brand-red font-bold uppercase tracking-wider">{errors.consent}</p>}
+              {errors.consent && <p className="text-xs text-brand-green font-bold uppercase tracking-wider">{errors.consent}</p>}
 
               <div className="flex items-start space-x-3">
                 <input
@@ -659,17 +659,17 @@ export default function NominationForm({ categories, onAddNomination }: Nominati
                   name="terms"
                   checked={form.terms}
                   onChange={handleChange}
-                  className="mt-1 w-4 h-4 text-brand-red border-brand-grey bg-brand-black focus:ring-brand-red cursor-pointer"
+                  className="mt-1 w-4 h-4 text-brand-green border-brand-grey bg-brand-black focus:ring-brand-green cursor-pointer"
                 />
                 <label className="text-xs text-gray-400 leading-relaxed">
                   I agree to the UNDER50 Nigeria index guidelines, selection processes, and audit protocols. *
                 </label>
               </div>
-              {errors.terms && <p className="text-xs text-brand-red font-bold uppercase tracking-wider">{errors.terms}</p>}
+              {errors.terms && <p className="text-xs text-brand-green font-bold uppercase tracking-wider">{errors.terms}</p>}
             </div>
 
             <div className="flex items-center space-x-2 bg-brand-charcoal border border-brand-grey/50 p-4 rounded-none text-[10px] text-gray-500 uppercase tracking-wider">
-              <Shield className="w-5 h-5 text-brand-red flex-shrink-0" />
+              <Shield className="w-5 h-5 text-brand-green flex-shrink-0" />
               <span>Protected by premium End-to-End database encryption protocols for sensitive executive files.</span>
             </div>
           </div>
@@ -696,7 +696,7 @@ export default function NominationForm({ categories, onAddNomination }: Nominati
               type="button"
               id="nom-next-btn"
               onClick={handleNext}
-              className="bg-brand-red text-white text-xs uppercase tracking-widest font-bold px-8 py-3.5 hover:bg-brand-red-hover transition-all flex items-center space-x-2 cursor-pointer shadow-md shadow-brand-red/15"
+              className="bg-brand-green text-white text-xs uppercase tracking-widest font-bold px-8 py-3.5 hover:bg-brand-green-hover transition-all flex items-center space-x-2 cursor-pointer shadow-md shadow-brand-green/15"
             >
               <span>Continue</span>
               <ArrowRight className="w-4 h-4" />
@@ -705,7 +705,7 @@ export default function NominationForm({ categories, onAddNomination }: Nominati
             <button
               type="submit"
               id="nom-submit-btn"
-              className="bg-brand-red text-white text-xs uppercase tracking-widest font-black px-10 py-4 hover:bg-brand-red-hover transition-all flex items-center space-x-2 cursor-pointer shadow-lg shadow-brand-red/20"
+              className="bg-brand-green text-white text-xs uppercase tracking-widest font-black px-10 py-4 hover:bg-brand-green-hover transition-all flex items-center space-x-2 cursor-pointer shadow-lg shadow-brand-green/20"
             >
               <Check className="w-4 h-4 stroke-[3px]" />
               <span>Submit Formal Nomination</span>

@@ -4,15 +4,15 @@
   --font-serif: "Playfair Display", Georgia, serif;
   --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
   
-  /* Brand Luxury Palette */
-  --color-brand-red: #C8102E;         /* Signature Red - Crimson */
-  --color-brand-red-hover: #9E0B22;   /* Deep Blood Red */
-  --color-brand-black: #050505;       /* Obsidian Black */
-  --color-brand-charcoal: #0F0F0F;    /* Rich Dark Charcoal */
-  --color-brand-grey: #1C1C1C;        /* Hairline Gray */
-  --color-brand-light-grey: #808080;  /* Editorial Label Gray */
-  --color-brand-cream: #F9F8F6;       /* Editorial Warm White */
-  --color-brand-gold: #C5A880;        /* Luxurious Editorial Gold Accent */
+  /* Brand Luxury Palette - Hot, Classy Emerald & Obsidian Rebrand */
+  --color-brand-green: #00A36C;         /* Sovereign Jade/Emerald Green */
+  --color-brand-green-hover: #007C51;   /* Rich Deep Forest Velvet */
+  --color-brand-black: #050505;         /* Obsidian Black */
+  --color-brand-charcoal: #0D0D0D;      /* Rich Dark Charcoal */
+  --color-brand-grey: #1A1A1A;          /* Razor Hairline Divider */
+  --color-brand-light-grey: #8E8E93;    /* Cool Neutral Gray */
+  --color-brand-cream: #F5F5F7;         /* High-End Off-White */
+  --color-brand-gold: #D4AF37;          /* Classic Metallic Gold Accents */
 }
 
 @layer base {
@@ -24,7 +24,7 @@
   }
 }
 
-/* Custom Webkit Scrollbar - Razor Thin & Crimson */
+/* Custom Webkit Scrollbar - Razor Thin & Sovereign Green */
 ::-webkit-scrollbar {
   width: 4px;
 }
@@ -32,10 +32,10 @@
   background: #050505;
 }
 ::-webkit-scrollbar-thumb {
-  background: #C8102E;
+  background: #00A36C;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #9E0B22;
+  background: #007C51;
 }
 
 /* Noise/Paper Grain Overlay - Tactical & Luxurious */
@@ -46,19 +46,19 @@
   width: 100vw;
   height: 100vh;
   content: "";
-  opacity: 0.018;
+  opacity: 0.022;
   pointer-events: none;
   z-index: 9999;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-/* Premium Radial Glow Mesh */
+/* Premium Radial Glow Mesh - Vibrant Emerald Glow */
 .ambient-glow {
   position: absolute;
   width: 600px;
   height: 600px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(200, 16, 46, 0.08) 0%, rgba(200, 16, 46, 0) 70%);
+  background: radial-gradient(circle, rgba(0, 163, 108, 0.09) 0%, rgba(0, 163, 108, 0) 70%);
   filter: blur(80px);
   pointer-events: none;
   z-index: -1;
@@ -80,6 +80,26 @@
   animation: slideUpReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+/* Sophisticated Word Rotation Animation (Slide-Up-Fade-In-Slide-Out) */
+@keyframes wordRotation {
+  0%, 15% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  20%, 80% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  85%, 100% {
+    opacity: 0;
+    transform: translateY(-24px);
+  }
+}
+
+.animate-word-rotate {
+  animation: wordRotation 3s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
 /* Border Glow Effects */
 .editorial-card {
   background-color: var(--color-brand-charcoal);
@@ -88,7 +108,7 @@
 }
 
 .editorial-card:hover {
-  border-color: rgba(200, 16, 46, 0.4);
+  border-color: rgba(0, 163, 108, 0.4);
   box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.9);
 }
 
@@ -104,7 +124,7 @@
   height: 1px;
   bottom: -2px;
   left: 0;
-  background-color: var(--color-brand-red);
+  background-color: var(--color-brand-green);
   transform-origin: bottom right;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }

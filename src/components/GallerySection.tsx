@@ -101,12 +101,12 @@ export default function GallerySection() {
 
             {/* Hover details Overlay */}
             <div className="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-brand-black/90 to-transparent translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
-              <span className="text-[9px] text-brand-red font-black uppercase tracking-widest block mb-1">
+              <span className="text-[9px] text-brand-green font-black uppercase tracking-widest block mb-1">
                 {img.category} night
               </span>
               <h4 className="font-serif text-lg font-bold text-white flex items-center gap-2">
                 {img.title}
-                <ZoomIn className="w-4 h-4 text-brand-red" />
+                <ZoomIn className="w-4 h-4 text-brand-green" />
               </h4>
             </div>
           </div>

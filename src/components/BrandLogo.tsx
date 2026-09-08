@@ -18,8 +18,18 @@ export default function BrandLogo({ className = "w-48 md:w-56 h-auto" }: BrandLo
           {/* Luxurious Dark Forest Green Gradient */}
           <linearGradient id="logo-green-grad" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="#0B4D27" />
-            <stop offset="40%" stopColor="#0E6C37" />
+            <stop offset="40%" stopColor="#00A36C" />
             <stop offset="100%" stopColor="#052E17" />
+          </linearGradient>
+
+          {/* Exquisite Green-White-Green Horizontal Gradient Combo for 'NIGERIA' */}
+          <linearGradient id="logo-nigeria-combo" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#00A36C" />
+            <stop offset="35%" stopColor="#00A36C" />
+            <stop offset="35%" stopColor="#FFFFFF" />
+            <stop offset="65%" stopColor="#FFFFFF" />
+            <stop offset="65%" stopColor="#00A36C" />
+            <stop offset="100%" stopColor="#00A36C" />
           </linearGradient>
 
           {/* Elegant Metallic Dark Charcoal Gradient */}
@@ -87,15 +97,15 @@ export default function BrandLogo({ className = "w-48 md:w-56 h-auto" }: BrandLo
             fontSize="32"
             fontWeight="800"
             letterSpacing="12"
-            fill="#0B4D27"
+            fill="url(#logo-nigeria-combo)"
             textAnchor="middle"
           >
             NIGERIA
           </text>
           
           {/* Symmetric accent geometric lines */}
-          <line x1="45" y1="424" x2="115" y2="424" stroke="#0B4D27" strokeWidth="4" />
-          <line x1="385" y1="424" x2="455" y2="424" stroke="#0B4D27" strokeWidth="4" />
+          <line x1="45" y1="424" x2="115" y2="424" stroke="url(#logo-nigeria-combo)" strokeWidth="4" />
+          <line x1="385" y1="424" x2="455" y2="424" stroke="url(#logo-nigeria-combo)" strokeWidth="4" />
         </g>
 
         {/* 5. Minimalist Nigerian Flag Horizontal Bar */}

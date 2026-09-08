@@ -54,7 +54,7 @@ export default function InsightsDashboard({ honourees }: InsightsDashboardProps)
     <section id="insights-dashboard" className="max-w-7xl mx-auto px-6 py-12">
       {/* Editorial Heading */}
       <div className="border-b border-brand-grey pb-8 mb-12">
-        <div className="flex items-center space-x-2 text-brand-red text-xs uppercase tracking-widest font-bold mb-3">
+        <div className="flex items-center space-x-2 text-brand-green text-xs uppercase tracking-widest font-bold mb-3">
           <TrendingUp className="w-4 h-4" />
           <span>Under50 Insights</span>
         </div>
@@ -70,7 +70,7 @@ export default function InsightsDashboard({ honourees }: InsightsDashboardProps)
         {/* Main Analytics Highlight */}
         <div className="lg:col-span-8 bg-brand-charcoal border border-brand-grey p-8 space-y-8 flex flex-col justify-between">
           <div>
-            <span className="text-[10px] text-brand-red font-black uppercase tracking-widest block mb-2">Ecosystem Authority</span>
+            <span className="text-[10px] text-brand-green font-black uppercase tracking-widest block mb-2">Ecosystem Authority</span>
             <h3 className="font-serif text-2xl md:text-3xl font-bold text-white leading-tight">
               Where Nigeria's Under-50 Leaders Are Building
             </h3>
@@ -85,7 +85,7 @@ export default function InsightsDashboard({ honourees }: InsightsDashboardProps)
               <div key={ind.name} className="space-y-1">
                 <div className="flex justify-between items-center text-xs">
                   <span className="text-white font-semibold flex items-center gap-2">
-                    <span className="text-brand-red font-mono font-bold text-[10px]">0{idx + 1}</span>
+                    <span className="text-brand-green font-mono font-bold text-[10px]">0{idx + 1}</span>
                     {ind.name}
                   </span>
                   <span className="text-gray-400 font-mono font-bold">
@@ -94,7 +94,7 @@ export default function InsightsDashboard({ honourees }: InsightsDashboardProps)
                 </div>
                 <div className="w-full h-2 bg-brand-black">
                   <div 
-                    className="h-full bg-brand-red transition-all duration-500" 
+                    className="h-full bg-brand-green transition-all duration-500" 
                     style={{ width: `${ind.pct}%` }} 
                   />
                 </div>
@@ -120,7 +120,7 @@ export default function InsightsDashboard({ honourees }: InsightsDashboardProps)
             {statistics.topStates.slice(0, 4).map((st) => (
               <div key={st.name} className="flex justify-between items-center border-b border-brand-grey/40 pb-2">
                 <div className="flex items-center space-x-2">
-                  <MapPin className="w-3.5 h-3.5 text-brand-red" />
+                  <MapPin className="w-3.5 h-3.5 text-brand-green" />
                   <span className="text-xs text-white font-bold">{st.name} State</span>
                 </div>
                 <span className="text-xs font-mono font-bold text-gray-400">{st.count} Inductees</span>
@@ -129,7 +129,7 @@ export default function InsightsDashboard({ honourees }: InsightsDashboardProps)
           </div>
 
           <div className="text-[10px] text-gray-500 uppercase tracking-widest border-t border-brand-grey/40 pt-4 flex items-center gap-1.5 font-bold">
-            <Info className="w-3.5 h-3.5 text-brand-red" />
+            <Info className="w-3.5 h-3.5 text-brand-green" />
             <span>Audited annually by PwC Nigeria registry advisors.</span>
           </div>
         </div>
@@ -152,7 +152,7 @@ export default function InsightsDashboard({ honourees }: InsightsDashboardProps)
             </div>
             {/* Horizontal divided bar */}
             <div className="w-full h-8 flex">
-              <div className="bg-brand-red h-full" style={{ width: `${statistics.gender.femalePct}%` }} title="Female representation" />
+              <div className="bg-brand-green h-full" style={{ width: `${statistics.gender.femalePct}%` }} title="Female representation" />
               <div className="bg-white h-full" style={{ width: `${statistics.gender.malePct}%` }} title="Male representation" />
             </div>
             <div className="flex justify-between text-[10px] text-gray-500 font-mono mt-2">
@@ -165,7 +165,7 @@ export default function InsightsDashboard({ honourees }: InsightsDashboardProps)
         {/* Global Expansion Map Block */}
         <div className="bg-brand-charcoal border border-brand-grey p-8 flex flex-col justify-between">
           <div>
-            <span className="text-[10px] text-brand-red font-black uppercase tracking-widest block mb-2">Continental Expansion</span>
+            <span className="text-[10px] text-brand-green font-black uppercase tracking-widest block mb-2">Continental Expansion</span>
             <h3 className="font-serif text-xl font-bold text-white">UNDER50 Sub-Saharan Readiness</h3>
             <p className="text-gray-400 text-xs mt-1">Architected to map regional cohorts as the platform scales across neighboring African economic channels.</p>
           </div>
@@ -173,7 +173,7 @@ export default function InsightsDashboard({ honourees }: InsightsDashboardProps)
           <div className="space-y-3 my-6">
             <div className="flex justify-between items-center text-xs border-b border-brand-grey/40 pb-2">
               <span className="text-white font-bold">Nigeria (Primary)</span>
-              <span className="bg-brand-red text-white font-mono font-bold px-2 py-0.5 text-[10px]">ACTIVE • {statistics.regionalSpread.find(r => r.name === "NIGERIA")?.count || 47} Leaders</span>
+              <span className="bg-brand-green text-white font-mono font-bold px-2 py-0.5 text-[10px]">ACTIVE • {statistics.regionalSpread.find(r => r.name === "NIGERIA")?.count || 47} Leaders</span>
             </div>
             <div className="flex justify-between items-center text-xs border-b border-brand-grey/40 pb-2">
               <span className="text-white font-bold">Ghana</span>

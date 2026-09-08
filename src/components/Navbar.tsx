@@ -56,11 +56,11 @@ export default function Navbar({ currentPage, onPageChange, nominationsOpen }: N
             onClick={() => handleLinkClick("home")}
             className="cursor-pointer group flex items-center space-x-2"
           >
-            <div className="w-8 h-8 bg-brand-red flex items-center justify-center font-serif text-white text-base font-bold transition-transform group-hover:scale-105">
+            <div className="w-8 h-8 bg-brand-green flex items-center justify-center font-serif text-white text-base font-bold transition-transform group-hover:scale-105">
               50
             </div>
             <div className="flex flex-col">
-              <span className="font-serif text-lg tracking-widest font-bold text-white group-hover:text-brand-red transition-colors">
+              <span className="font-serif text-lg tracking-widest font-bold text-white group-hover:text-brand-green transition-colors">
                 UNDER50
               </span>
               <span className="text-[9px] tracking-[0.3em] uppercase text-gray-400 -mt-1 font-sans">
@@ -76,16 +76,16 @@ export default function Navbar({ currentPage, onPageChange, nominationsOpen }: N
                 key={link.id}
                 id={`nav-link-${link.id}`}
                 onClick={() => handleLinkClick(link.id)}
-                className={`text-xs uppercase tracking-widest font-semibold transition-all duration-200 relative py-1 hover:text-brand-red cursor-pointer ${
+                className={`text-xs uppercase tracking-widest font-semibold transition-all duration-200 relative py-1 hover:text-brand-green cursor-pointer ${
                   currentPage === link.id || (currentPage.startsWith("story-") && link.id === "stories") || (currentPage.startsWith("person-") && link.id === "list")
-                    ? "text-brand-red font-bold"
+                    ? "text-brand-green font-bold"
                     : "text-gray-300"
                 }`}
               >
                 {link.label}
                 {/* Active Underline Indicator */}
                 {(currentPage === link.id || (currentPage.startsWith("story-") && link.id === "stories") || (currentPage.startsWith("person-") && link.id === "list")) && (
-                  <span className="absolute bottom-0 left-0 w-full h-[2px] bg-brand-red" />
+                  <span className="absolute bottom-0 left-0 w-full h-[2px] bg-brand-green" />
                 )}
               </button>
             ))}
@@ -103,7 +103,7 @@ export default function Navbar({ currentPage, onPageChange, nominationsOpen }: N
             <button
               id="cta-nominate"
               onClick={() => handleLinkClick("nominate")}
-              className="bg-brand-red text-white text-xs uppercase tracking-widest font-bold px-5 py-2.5 transition-all duration-300 hover:bg-brand-red-hover flex items-center group shadow-md shadow-brand-red/10 cursor-pointer"
+              className="bg-brand-green text-white text-xs uppercase tracking-widest font-bold px-5 py-2.5 transition-all duration-300 hover:bg-brand-green-hover flex items-center group shadow-md shadow-brand-green/10 cursor-pointer"
             >
               Nominate
               <ChevronRight className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />
@@ -113,7 +113,7 @@ export default function Navbar({ currentPage, onPageChange, nominationsOpen }: N
               id="cta-admin-shortcut"
               onClick={() => handleLinkClick("admin")}
               className={`text-xs uppercase tracking-widest font-bold p-2 transition-all duration-200 ${
-                currentPage === "admin" ? "text-brand-red" : "text-gray-500 hover:text-gray-300"
+                currentPage === "admin" ? "text-brand-green" : "text-gray-500 hover:text-gray-300"
               }`}
               title="Admin CMS & Logs"
             >
@@ -126,14 +126,14 @@ export default function Navbar({ currentPage, onPageChange, nominationsOpen }: N
             <button
               id="mobile-shortcut-nominate"
               onClick={() => handleLinkClick("nominate")}
-              className="bg-brand-red text-white text-[10px] uppercase tracking-wider font-bold px-3 py-1.5 hover:bg-brand-red-hover transition-colors"
+              className="bg-brand-green text-white text-[10px] uppercase tracking-wider font-bold px-3 py-1.5 hover:bg-brand-green-hover transition-colors"
             >
               Nominate
             </button>
             <button
               id="mobile-menu-trigger"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-white hover:text-brand-red p-1.5 focus:outline-none"
+              className="text-white hover:text-brand-green p-1.5 focus:outline-none"
               aria-label="Toggle navigation menu"
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -160,15 +160,15 @@ export default function Navbar({ currentPage, onPageChange, nominationsOpen }: N
               key={link.id}
               id={`mobile-nav-link-${link.id}`}
               onClick={() => handleLinkClick(link.id)}
-              className="text-left text-3xl font-serif text-white hover:text-brand-red transition-all duration-200 flex items-center justify-between group py-1"
+              className="text-left text-3xl font-serif text-white hover:text-brand-green transition-all duration-200 flex items-center justify-between group py-1"
             >
               <span className="flex items-center">
-                <span className="text-xs font-sans text-brand-red mr-4 opacity-50">
+                <span className="text-xs font-sans text-brand-green mr-4 opacity-50">
                   {String(idx + 1).padStart(2, "0")}
                 </span>
                 {link.label}
               </span>
-              <ChevronRight className="w-6 h-6 text-brand-red opacity-0 group-hover:opacity-100 transition-opacity" />
+              <ChevronRight className="w-6 h-6 text-brand-green opacity-0 group-hover:opacity-100 transition-opacity" />
             </button>
           ))}
         </div>
@@ -189,7 +189,7 @@ export default function Navbar({ currentPage, onPageChange, nominationsOpen }: N
             <button
               id="mobile-overlay-nominate"
               onClick={() => handleLinkClick("nominate")}
-              className="bg-brand-red text-white text-center uppercase tracking-widest font-bold py-3 text-xs hover:bg-brand-red-hover transition-colors"
+              className="bg-brand-green text-white text-center uppercase tracking-widest font-bold py-3 text-xs hover:bg-brand-green-hover transition-colors"
             >
               Nominate
             </button>
@@ -197,7 +197,7 @@ export default function Navbar({ currentPage, onPageChange, nominationsOpen }: N
           <button
             id="mobile-overlay-admin"
             onClick={() => handleLinkClick("admin")}
-            className="text-gray-600 hover:text-brand-red text-center text-[10px] uppercase tracking-widest mt-2 flex items-center justify-center space-x-1"
+            className="text-gray-600 hover:text-brand-green text-center text-[10px] uppercase tracking-widest mt-2 flex items-center justify-center space-x-1"
           >
             <Award className="w-3.5 h-3.5" />
             <span>Admin CMS & Registry</span>

@@ -38,13 +38,13 @@ export default function ArticleView({ story, onBack, onSelectPersonByName }: Art
     <article id="article-view-panel" className="max-w-4xl mx-auto px-6 py-12">
       {/* Scroll Progress Bar */}
       <div className="fixed top-20 left-0 w-full h-[3px] bg-brand-charcoal z-50">
-        <div className="h-full bg-brand-red transition-all duration-75" style={{ width: `${scrollProgress}%` }} />
+        <div className="h-full bg-brand-green transition-all duration-75" style={{ width: `${scrollProgress}%` }} />
       </div>
 
       {/* Back CTA */}
       <button
         onClick={onBack}
-        className="flex items-center space-x-2 text-xs uppercase tracking-widest font-bold text-gray-400 hover:text-brand-red transition-colors mb-8 cursor-pointer"
+        className="flex items-center space-x-2 text-xs uppercase tracking-widest font-bold text-gray-400 hover:text-brand-green transition-colors mb-8 cursor-pointer"
       >
         <ArrowLeft className="w-4 h-4" />
         <span>Stories Portal</span>
@@ -52,19 +52,19 @@ export default function ArticleView({ story, onBack, onSelectPersonByName }: Art
 
       {/* Hero Meta */}
       <div className="space-y-4 mb-10">
-        <span className="text-xs text-brand-red font-black uppercase tracking-widest bg-brand-red/10 px-2.5 py-1">
+        <span className="text-xs text-brand-green font-black uppercase tracking-widest bg-brand-green/10 px-2.5 py-1">
           {story.category}
         </span>
         <h1 className="font-serif text-3xl md:text-5xl font-black text-white leading-tight tracking-tight">
           {story.title}
         </h1>
-        <p className="text-gray-400 text-lg md:text-xl font-medium leading-relaxed font-serif italic border-l-2 border-brand-red pl-4">
+        <p className="text-gray-400 text-lg md:text-xl font-medium leading-relaxed font-serif italic border-l-2 border-brand-green pl-4">
           {story.excerpt}
         </p>
 
         <div className="flex flex-wrap items-center gap-6 text-xs text-gray-500 pt-4 border-t border-brand-grey/40">
           <span className="flex items-center gap-1.5 font-bold text-white">
-            <User className="w-4 h-4 text-brand-red" />
+            <User className="w-4 h-4 text-brand-green" />
             {story.author}
           </span>
           <span className="flex items-center gap-1.5">
@@ -102,7 +102,7 @@ export default function ArticleView({ story, onBack, onSelectPersonByName }: Art
           
           <button
             onClick={handleShareWhatsApp}
-            className="p-3 bg-brand-charcoal border border-brand-grey hover:border-brand-red text-gray-400 hover:text-brand-red transition-all rounded-none cursor-pointer"
+            className="p-3 bg-brand-charcoal border border-brand-grey hover:border-brand-green text-gray-400 hover:text-brand-green transition-all rounded-none cursor-pointer"
             title="Share via WhatsApp"
           >
             <Send className="w-4 h-4" />
@@ -116,12 +116,12 @@ export default function ArticleView({ story, onBack, onSelectPersonByName }: Art
           </p>
 
           {/* Pullquote */}
-          <blockquote className="bg-brand-charcoal border-l-4 border-brand-red p-6 my-8 font-serif italic text-white text-lg md:text-xl">
+          <blockquote className="bg-brand-charcoal border-l-4 border-brand-green p-6 my-8 font-serif italic text-white text-lg md:text-xl">
             "We aren't waiting for institutions to adapt. We are building the concrete, sovereign rails that will guide our cities and food grids into the next century."
           </blockquote>
 
           <p>
-            When examining the profiles of leading technology officers like <span onClick={() => onSelectPersonByName("Amina Adebayo")} className="text-brand-red hover:underline cursor-pointer font-sans font-bold">Amina Adebayo</span> or climate agronomists like <span onClick={() => onSelectPersonByName("Chidi Egwu")} className="text-brand-red hover:underline cursor-pointer font-sans font-bold">Chidi Egwu</span>, we see a recurring theme of profound discipline and long-term ecosystem investment.
+            When examining the profiles of leading technology officers like <span onClick={() => onSelectPersonByName("Amina Adebayo")} className="text-brand-green hover:underline cursor-pointer font-sans font-bold">Amina Adebayo</span> or climate agronomists like <span onClick={() => onSelectPersonByName("Chidi Egwu")} className="text-brand-green hover:underline cursor-pointer font-sans font-bold">Chidi Egwu</span>, we see a recurring theme of profound discipline and long-term ecosystem investment.
           </p>
 
           <p>
@@ -131,7 +131,7 @@ export default function ArticleView({ story, onBack, onSelectPersonByName }: Art
           <div className="border-t border-brand-grey/50 pt-8 mt-12 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div>
               <p className="text-xs text-gray-500 uppercase tracking-widest font-black">Next Article</p>
-              <h4 className="font-serif text-base font-bold text-white mt-1 hover:text-brand-red transition-colors cursor-pointer" onClick={onBack}>
+              <h4 className="font-serif text-base font-bold text-white mt-1 hover:text-brand-green transition-colors cursor-pointer" onClick={onBack}>
                 Structuring Next-Generation Business Ecosystems →
               </h4>
             </div>

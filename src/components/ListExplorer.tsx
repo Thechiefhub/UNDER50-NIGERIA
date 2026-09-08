@@ -110,8 +110,8 @@ export default function ListExplorer({ honourees, categories, onSelectPerson }: 
       {/* Intro Header */}
       <div className="border-b border-brand-grey pb-10 mb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
-          <div className="flex items-center space-x-2 text-brand-red text-xs uppercase tracking-widest font-bold mb-3">
-            <span className="w-1.5 h-1.5 bg-brand-red rounded-full animate-pulse"></span>
+          <div className="flex items-center space-x-2 text-brand-green text-xs uppercase tracking-widest font-bold mb-3">
+            <span className="w-1.5 h-1.5 bg-brand-green rounded-full animate-pulse"></span>
             <span>The Registry</span>
           </div>
           <h1 className="font-serif text-4xl md:text-6xl font-bold tracking-tight text-white">
@@ -129,7 +129,7 @@ export default function ListExplorer({ honourees, categories, onSelectPerson }: 
               id="layout-grid-btn"
               onClick={() => setLayout("grid")}
               className={`p-2 transition-colors cursor-pointer ${
-                layout === "grid" ? "bg-brand-red text-white" : "text-gray-400 hover:text-white"
+                layout === "grid" ? "bg-brand-green text-white" : "text-gray-400 hover:text-white"
               }`}
               title="Editorial Grid"
             >
@@ -139,7 +139,7 @@ export default function ListExplorer({ honourees, categories, onSelectPerson }: 
               id="layout-magazine-btn"
               onClick={() => setLayout("magazine")}
               className={`p-2 transition-colors cursor-pointer ${
-                layout === "magazine" ? "bg-brand-red text-white" : "text-gray-400 hover:text-white"
+                layout === "magazine" ? "bg-brand-green text-white" : "text-gray-400 hover:text-white"
               }`}
               title="Magazine Layout"
             >
@@ -149,7 +149,7 @@ export default function ListExplorer({ honourees, categories, onSelectPerson }: 
               id="layout-compact-btn"
               onClick={() => setLayout("compact")}
               className={`p-2 transition-colors cursor-pointer ${
-                layout === "compact" ? "bg-brand-red text-white" : "text-gray-400 hover:text-white"
+                layout === "compact" ? "bg-brand-green text-white" : "text-gray-400 hover:text-white"
               }`}
               title="Compact List"
             >
@@ -182,7 +182,7 @@ export default function ListExplorer({ honourees, categories, onSelectPerson }: 
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search by name, organization, title, or industry..."
-            className="w-full bg-brand-charcoal border border-brand-grey/80 py-3.5 pl-12 pr-4 text-sm text-white focus:outline-none focus:border-brand-red transition-all placeholder:text-gray-500"
+            className="w-full bg-brand-charcoal border border-brand-grey/80 py-3.5 pl-12 pr-4 text-sm text-white focus:outline-none focus:border-brand-green transition-all placeholder:text-gray-500"
           />
         </div>
         <div className="md:col-span-4">
@@ -190,7 +190,7 @@ export default function ListExplorer({ honourees, categories, onSelectPerson }: 
             id="list-sort-select"
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value as any)}
-            className="w-full bg-brand-charcoal border border-brand-grey/80 py-3.5 px-4 text-sm text-white focus:outline-none focus:border-brand-red transition-all cursor-pointer"
+            className="w-full bg-brand-charcoal border border-brand-grey/80 py-3.5 px-4 text-sm text-white focus:outline-none focus:border-brand-green transition-all cursor-pointer"
           >
             <option value="featured">Sort: Inductees & Featured</option>
             <option value="alpha">Sort: Alphabetical (A-Z)</option>
@@ -212,7 +212,7 @@ export default function ListExplorer({ honourees, categories, onSelectPerson }: 
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
-              className="bg-brand-black border border-brand-grey text-xs p-2.5 text-white focus:outline-none focus:border-brand-red cursor-pointer"
+              className="bg-brand-black border border-brand-grey text-xs p-2.5 text-white focus:outline-none focus:border-brand-green cursor-pointer"
             >
               <option value="ALL">All Categories</option>
               {categories.map((c) => (
@@ -229,7 +229,7 @@ export default function ListExplorer({ honourees, categories, onSelectPerson }: 
             <select
               value={selectedIndustry}
               onChange={(e) => setSelectedIndustry(e.target.value)}
-              className="bg-brand-black border border-brand-grey text-xs p-2.5 text-white focus:outline-none focus:border-brand-red cursor-pointer"
+              className="bg-brand-black border border-brand-grey text-xs p-2.5 text-white focus:outline-none focus:border-brand-green cursor-pointer"
             >
               {industries.map((ind) => (
                 <option key={ind} value={ind}>
@@ -245,7 +245,7 @@ export default function ListExplorer({ honourees, categories, onSelectPerson }: 
             <select
               value={selectedState}
               onChange={(e) => setSelectedState(e.target.value)}
-              className="bg-brand-black border border-brand-grey text-xs p-2.5 text-white focus:outline-none focus:border-brand-red cursor-pointer"
+              className="bg-brand-black border border-brand-grey text-xs p-2.5 text-white focus:outline-none focus:border-brand-green cursor-pointer"
             >
               {states.map((st) => (
                 <option key={st} value={st}>
@@ -261,7 +261,7 @@ export default function ListExplorer({ honourees, categories, onSelectPerson }: 
             <select
               value={selectedYear}
               onChange={(e) => setSelectedYear(e.target.value === "ALL" ? "ALL" : Number(e.target.value))}
-              className="bg-brand-black border border-brand-grey text-xs p-2.5 text-white focus:outline-none focus:border-brand-red cursor-pointer"
+              className="bg-brand-black border border-brand-grey text-xs p-2.5 text-white focus:outline-none focus:border-brand-green cursor-pointer"
             >
               <option value="ALL">All Editions</option>
               {years.filter((y) => y !== "ALL").map((yr) => (
@@ -278,7 +278,7 @@ export default function ListExplorer({ honourees, categories, onSelectPerson }: 
             <select
               value={selectedCountry}
               onChange={(e) => setSelectedCountry(e.target.value as any)}
-              className="bg-brand-black border border-brand-grey text-xs p-2.5 text-white focus:outline-none focus:border-brand-red cursor-pointer"
+              className="bg-brand-black border border-brand-grey text-xs p-2.5 text-white focus:outline-none focus:border-brand-green cursor-pointer"
             >
               {countries.map((c) => (
                 <option key={c} value={c}>
@@ -308,7 +308,7 @@ export default function ListExplorer({ honourees, categories, onSelectPerson }: 
               setSelectedCountry("ALL");
               setSearch("");
             }}
-            className="text-xs text-brand-red hover:underline uppercase tracking-wider font-bold cursor-pointer"
+            className="text-xs text-brand-green hover:underline uppercase tracking-wider font-bold cursor-pointer"
           >
             Clear All Filters
           </button>
@@ -332,7 +332,7 @@ export default function ListExplorer({ honourees, categories, onSelectPerson }: 
               setSelectedCountry("ALL");
               setSearch("");
             }}
-            className="bg-brand-red text-white text-xs uppercase tracking-widest font-bold px-6 py-2.5 hover:bg-brand-red-hover transition-colors cursor-pointer"
+            className="bg-brand-green text-white text-xs uppercase tracking-widest font-bold px-6 py-2.5 hover:bg-brand-green-hover transition-colors cursor-pointer"
           >
             Reset Explorer
           </button>
@@ -346,7 +346,7 @@ export default function ListExplorer({ honourees, categories, onSelectPerson }: 
             <div
               key={person.id}
               onClick={() => onSelectPerson(person.id)}
-              className="bg-brand-charcoal group cursor-pointer border border-brand-grey/40 hover:border-brand-red/50 transition-all duration-300 relative overflow-hidden flex flex-col justify-between"
+              className="bg-brand-charcoal group cursor-pointer border border-brand-grey/40 hover:border-brand-green/50 transition-all duration-300 relative overflow-hidden flex flex-col justify-between"
             >
               {/* Image & Year */}
               <div className="relative aspect-[4/5] w-full overflow-hidden bg-brand-black">
@@ -356,7 +356,7 @@ export default function ListExplorer({ honourees, categories, onSelectPerson }: 
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
                 />
-                <div className="absolute top-4 left-4 bg-brand-red text-white text-[10px] tracking-widest uppercase font-black px-2 py-1">
+                <div className="absolute top-4 left-4 bg-brand-green text-white text-[10px] tracking-widest uppercase font-black px-2 py-1">
                   CLASS OF {person.year}
                 </div>
                 {person.isFeatured && (
@@ -370,17 +370,17 @@ export default function ListExplorer({ honourees, categories, onSelectPerson }: 
               {/* Text Info */}
               <div className="p-6 relative">
                 {/* Visual signature Red accent line appears on hover */}
-                <div className="absolute top-0 left-6 right-6 h-[2px] bg-brand-red origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+                <div className="absolute top-0 left-6 right-6 h-[2px] bg-brand-green origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
 
                 <div className="flex items-center justify-between text-[11px] text-gray-400 uppercase tracking-widest mb-2">
-                  <span className="font-bold text-brand-red">{person.category}</span>
+                  <span className="font-bold text-brand-green">{person.category}</span>
                   <span className="flex items-center gap-1">
                     <MapPin className="w-3 h-3 text-gray-500" />
                     {person.state}
                   </span>
                 </div>
 
-                <h3 className="font-serif text-2xl font-bold text-white group-hover:text-brand-red transition-colors duration-200">
+                <h3 className="font-serif text-2xl font-bold text-white group-hover:text-brand-green transition-colors duration-200">
                   {person.name}
                 </h3>
                 <p className="text-xs text-gray-400 font-semibold mt-1">
@@ -392,7 +392,7 @@ export default function ListExplorer({ honourees, categories, onSelectPerson }: 
                 </p>
               </div>
 
-              <div className="border-t border-brand-grey/40 p-4 bg-brand-black/30 flex justify-between items-center text-xs text-brand-red group-hover:bg-brand-red group-hover:text-white transition-all duration-300">
+              <div className="border-t border-brand-grey/40 p-4 bg-brand-black/30 flex justify-between items-center text-xs text-brand-green group-hover:bg-brand-green group-hover:text-white transition-all duration-300">
                 <span className="uppercase tracking-widest font-bold">Discover Profile</span>
                 <ChevronRight className="w-4 h-4 translate-x-0 group-hover:translate-x-1 transition-transform" />
               </div>
@@ -423,25 +423,25 @@ export default function ListExplorer({ honourees, categories, onSelectPerson }: 
                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-102 transition-all duration-500"
                   />
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300" />
-                  <div className="absolute bottom-6 left-6 bg-brand-red text-white text-xs tracking-widest uppercase font-black px-3 py-1.5">
+                  <div className="absolute bottom-6 left-6 bg-brand-green text-white text-xs tracking-widest uppercase font-black px-3 py-1.5">
                     {person.country} • CLASS OF {person.year}
                   </div>
                 </div>
 
                 {/* Editorial Description */}
                 <div className="w-full lg:w-1/2 flex flex-col justify-center">
-                  <div className="text-xs text-brand-red uppercase tracking-widest font-black mb-3 flex items-center space-x-2">
+                  <div className="text-xs text-brand-green uppercase tracking-widest font-black mb-3 flex items-center space-x-2">
                     <span>{person.category}</span>
                     <span className="text-gray-600">•</span>
                     <span className="text-gray-400">{person.industry}</span>
                   </div>
 
-                  <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-white group-hover:text-brand-red transition-colors duration-300 mb-4">
+                  <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-white group-hover:text-brand-green transition-colors duration-300 mb-4">
                     {person.name}
                   </h2>
 
                   <p className="font-semibold text-lg text-gray-300 mb-4">
-                    {person.title} at <span className="text-white border-b border-brand-red pb-0.5">{person.organization}</span>
+                    {person.title} at <span className="text-white border-b border-brand-green pb-0.5">{person.organization}</span>
                   </p>
 
                   <p className="text-gray-400 text-sm md:text-base leading-relaxed mb-6 font-serif italic">
@@ -450,18 +450,18 @@ export default function ListExplorer({ honourees, categories, onSelectPerson }: 
 
                   <div className="flex items-center space-x-6 text-xs text-gray-400">
                     <span className="flex items-center gap-1.5">
-                      <MapPin className="w-3.5 h-3.5 text-brand-red" />
+                      <MapPin className="w-3.5 h-3.5 text-brand-green" />
                       {person.state} Region
                     </span>
                     <span className="flex items-center gap-1.5">
-                      <Calendar className="w-3.5 h-3.5 text-brand-red" />
+                      <Calendar className="w-3.5 h-3.5 text-brand-green" />
                       Inducted {person.year}
                     </span>
                   </div>
 
-                  <div className="mt-8 flex items-center text-xs uppercase tracking-widest font-bold text-brand-red group-hover:text-white transition-colors">
+                  <div className="mt-8 flex items-center text-xs uppercase tracking-widest font-bold text-brand-green group-hover:text-white transition-colors">
                     <span>Explore Institutional Profile</span>
-                    <span className="ml-2 w-8 h-[1px] bg-brand-red group-hover:bg-white group-hover:w-12 transition-all duration-300"></span>
+                    <span className="ml-2 w-8 h-[1px] bg-brand-green group-hover:bg-white group-hover:w-12 transition-all duration-300"></span>
                   </div>
                 </div>
               </div>
@@ -495,7 +495,7 @@ export default function ListExplorer({ honourees, categories, onSelectPerson }: 
                 </div>
 
                 <div>
-                  <h4 className="font-serif text-lg font-bold text-white group-hover:text-brand-red transition-colors">
+                  <h4 className="font-serif text-lg font-bold text-white group-hover:text-brand-green transition-colors">
                     {person.name}
                   </h4>
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-gray-400 mt-0.5">
@@ -503,7 +503,7 @@ export default function ListExplorer({ honourees, categories, onSelectPerson }: 
                     <span className="text-gray-600">•</span>
                     <span>{person.title}</span>
                     <span className="text-gray-600">•</span>
-                    <span className="text-brand-red font-medium">{person.industry}</span>
+                    <span className="text-brand-green font-medium">{person.industry}</span>
                   </div>
                 </div>
               </div>
@@ -518,10 +518,10 @@ export default function ListExplorer({ honourees, categories, onSelectPerson }: 
                   <p className="text-[10px] text-gray-500 uppercase tracking-widest">State</p>
                 </div>
                 <div className="text-right">
-                  <p className="text-xs text-brand-red font-bold">Class of {person.year}</p>
+                  <p className="text-xs text-brand-green font-bold">Class of {person.year}</p>
                   <p className="text-[10px] text-gray-500 uppercase tracking-widest">Induction</p>
                 </div>
-                <ChevronRight className="w-5 h-5 text-brand-red group-hover:translate-x-1 transition-transform" />
+                <ChevronRight className="w-5 h-5 text-brand-green group-hover:translate-x-1 transition-transform" />
               </div>
             </div>
           ))}
